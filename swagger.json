@@ -609,13 +609,6 @@
             "required": true,
             "type": "integer"
           }
-          // ,{
-          //   "name": "name",
-          //   "in": "query",
-          //   "description": "傳遞此參數不影響結果",
-          //   "required": false,
-          //   "type": "string"
-          // }
         ],
         "responses": {
           "200": {
@@ -899,34 +892,6 @@
             "required": true,
             "type": "integer"
           }
-          // ,{
-          //   "in": "query",
-          //   "name": "name",
-          //   "description": "分店名稱",
-          //   "required": false,
-          //   "type": "string"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "addr",
-          //   "description": "分店地址",
-          //   "required": false,
-          //   "type": "string"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "phone",
-          //   "description": "分店號碼",
-          //   "required": false,
-          //   "type": "string"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "owner",
-          //   "description": "分店負責人/所有人",
-          //   "required": false,
-          //   "type": "string"
-          // }
         ],
         "responses": {
           "200": {
@@ -968,34 +933,6 @@
             "required": true,
             "type": "integer"
           }
-          // ,{
-          //   "in": "query",
-          //   "name": "name",
-          //   "description": "分店名稱",
-          //   "required": false,
-          //   "type": "string"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "addr",
-          //   "description": "分店地址",
-          //   "required": false,
-          //   "type": "string"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "phone",
-          //   "description": "分店號碼",
-          //   "required": false,
-          //   "type": "string"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "owner",
-          //   "description": "分店負責人/所有人",
-          //   "required": false,
-          //   "type": "string"
-          // }
         ],
           "400": {
             "description": "Invalid status value"
@@ -1204,13 +1141,6 @@
             "required": true,
             "type": "integer"
           }
-          // ,{
-          //   "in": "query",
-          //   "name": "name",
-          //   "description": "商品種類名稱",
-          //   "required": true,
-          //   "type": "string"
-          // }
         ],
         "responses": {
           "200": {
@@ -1252,13 +1182,6 @@
             "required": true,
             "type": "integer"
           }
-          // ,{
-          //   "in": "query",
-          //   "name": "name",
-          //   "description": "商品種類名稱",
-          //   "required": true,
-          //   "type": "string"
-          // }
         ],
         "responses": {
           "200": {
@@ -1521,27 +1444,6 @@
             "required": true,
             "type": "string"
           }
-          // ,{
-          //   "in": "query",
-          //   "name": "name",
-          //   "description": "公司部門名稱",
-          //   "required": true,
-          //   "type": "string"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "addr",
-          //   "description": "公司部門地址",
-          //   "required": true,
-          //   "type": "string"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "phone",
-          //   "description": "公司部門電話號碼",
-          //   "required": true,
-          //   "type": "string"
-          // }
         ],
         "responses": {
           "200": {
@@ -1583,28 +1485,6 @@
             "required": true,
             "type": "string"
           }
-          // ,
-          // {
-          //   "in": "query",
-          //   "name": "name",
-          //   "description": "公司部門名稱",
-          //   "required": true,
-          //   "type": "string"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "addr",
-          //   "description": "公司部門地址",
-          //   "required": true,
-          //   "type": "string"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "phone",
-          //   "description": "公司部門電話號碼",
-          //   "required": true,
-          //   "type": "string"
-          // }
         ],
         "responses": {
           "200": {
@@ -1846,21 +1726,6 @@
             "required": true,
             "type": "string"
           }
-          // ,
-          // {
-          //   "in": "query",
-          //   "name": "name",
-          //   "description": "貨運駕駛員名稱",
-          //   "required": true,
-          //   "type": "string"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "phone",
-          //   "description": "貨運駕駛員聯絡號碼",
-          //   "required": false,
-          //   "type": "string"
-          // }
         ],
         "responses": {
           "200": {
@@ -1902,21 +1767,6 @@
             "required": true,
             "type": "string"
           }
-          // ,
-          // {
-          //   "in": "query",
-          //   "name": "name",
-          //   "description": "貨運駕駛員名稱",
-          //   "required": true,
-          //   "type": "string"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "phone",
-          //   "description": "貨運駕駛員聯絡號碼",
-          //   "required": false,
-          //   "type": "string"
-          // }
         ],
         "responses": {
           "200": {
@@ -2165,14 +2015,6 @@
             "required": true,
             "type": "string"
           }
-          // ,
-          // {
-          //   "in": "query",
-          //   "name": "difference",
-          //   "description": "盤損(可能為正或為負，若為null則表示此倉庫商品未盤點)",
-          //   "required": false,
-          //   "type": "integer"
-          // }
         ],
         "responses": {
           "200": {
@@ -2221,14 +2063,6 @@
             "required": true,
             "type": "string"
           }
-          // ,
-          // {
-          //   "in": "query",
-          //   "name": "difference",
-          //   "description": "盤損(可能為正或為負，若為null則表示此倉庫商品未盤點)",
-          //   "required": true,
-          //   "type": "integer"
-          // }
         ],
         "responses": {
           "200": {
@@ -2533,42 +2367,6 @@
             "required": true,
             "type": "string"
           }
-          // ,
-          // {
-          //   "in": "query",
-          //   "name": "name",
-          //   "description": "商品種類名稱",
-          //   "required": true,
-          //   "type": "string"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "menuf",
-          //   "description": "商品製作商",
-          //   "required": true,
-          //   "type": "string"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "price",
-          //   "description": "商品價格",
-          //   "required": true,
-          //   "type": "integer"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "category",
-          //   "description": "商品種類",
-          //   "required": true,
-          //   "type": "integer"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "stock",
-          //   "description": "商品庫存數量",
-          //   "required": true,
-          //   "type": "integer"
-          // }
         ],
         "responses": {
           "200": {
@@ -2610,42 +2408,6 @@
             "required": true,
             "type": "string"
           }
-          // ,
-          // {
-          //   "in": "query",
-          //   "name": "name",
-          //   "description": "商品種類名稱",
-          //   "required": true,
-          //   "type": "string"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "menuf",
-          //   "description": "商品製作商",
-          //   "required": true,
-          //   "type": "string"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "price",
-          //   "description": "商品價格",
-          //   "required": true,
-          //   "type": "integer"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "category",
-          //   "description": "商品種類",
-          //   "required": true,
-          //   "type": "integer"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "stock",
-          //   "description": "商品庫存數量",
-          //   "required": true,
-          //   "type": "integer"
-          // }
         ],
         "responses": {
           "200": {
@@ -2908,28 +2670,6 @@
             "required": false,
             "type": "string"
           }
-          // ,
-          // {
-          //   "in": "query",
-          //   "name": "senderid",
-          //   "description": "出貨倉庫/分店ID",
-          //   "required": true,
-          //   "type": "string"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "senddate",
-          //   "description": "出貨日期",
-          //   "required": true,
-          //   "type": "string"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "status",
-          //   "description": "訂單處理狀況",
-          //   "required": true,
-          //   "type": "integer"
-          // }
         ],
         "responses": {
           "200": {
@@ -2971,28 +2711,6 @@
             "required": false,
             "type": "string"
           }
-          // ,
-          // {
-          //   "in": "query",
-          //   "name": "senderid",
-          //   "description": "出貨倉庫/分店ID",
-          //   "required": true,
-          //   "type": "string"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "senddate",
-          //   "description": "出貨日期",
-          //   "required": true,
-          //   "type": "string"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "status",
-          //   "description": "訂單處理狀況",
-          //   "required": true,
-          //   "type": "integer"
-          // }
         ],
         "responses": {
           "200": {
@@ -3241,14 +2959,6 @@
             "required": true,
             "type": "string"
           }
-          // ,
-          // {
-          //   "in": "query",
-          //   "name": "ordnum",
-          //   "description": "訂購/調貨數量",
-          //   "required": true,
-          //   "type": "integer"
-          // }
         ],
         "responses": {
           "200": {
@@ -3297,14 +3007,6 @@
             "required": true,
             "type": "string"
           }
-          // ,
-          // {
-          //   "in": "query",
-          //   "name": "ordnum",
-          //   "description": "訂購/調貨數量",
-          //   "required": true,
-          //   "type": "integer"
-          // }
         ],
         "responses": {
           "200": {
@@ -3525,14 +3227,6 @@
             "required": true,
             "type": "integer"
           }
-          // ,
-          // {
-          //   "in": "query",
-          //   "name": "name",
-          //   "description": "訂單狀態名稱",
-          //   "required": true,
-          //   "type": "string"
-          // }
         ],
         "responses": {
           "200": {
@@ -3574,14 +3268,6 @@
             "required": true,
             "type": "integer"
           }
-          // ,
-          // {
-          //   "in": "query",
-          //   "name": "name",
-          //   "description": "訂單狀態名稱",
-          //   "required": true,
-          //   "type": "string"
-          // }
         ],
         "responses": {
           "200": {
@@ -3893,35 +3579,6 @@
             "required": true,
             "type": "integer"
           }
-          // ,
-          // {
-          //   "in": "query",
-          //   "name": "num",
-          //   "description": "銷售數量",
-          //   "required": true,
-          //   "type": "integer"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "month",
-          //   "description": "銷售紀錄月份",
-          //   "required": true,
-          //   "type": "integer"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "day",
-          //   "description": "銷售紀錄日期",
-          //   "required": true,
-          //   "type": "integer"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "year",
-          //   "description": "銷售紀錄年份",
-          //   "required": true,
-          //   "type": "integer"
-          // }
         ],
         "responses": {
           "200": {
@@ -3970,35 +3627,6 @@
             "required": true,
             "type": "integer"
           }
-          // ,
-          // {
-          //   "in": "query",
-          //   "name": "num",
-          //   "description": "銷售數量",
-          //   "required": true,
-          //   "type": "integer"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "month",
-          //   "description": "銷售紀錄月份",
-          //   "required": true,
-          //   "type": "integer"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "day",
-          //   "description": "銷售紀錄日期",
-          //   "required": true,
-          //   "type": "integer"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "year",
-          //   "description": "銷售紀錄年份",
-          //   "required": true,
-          //   "type": "integer"
-          // }
         ],
         "responses": {
           "200": {
@@ -4282,35 +3910,6 @@
             "required": true,
             "type": "string"
           }
-          // ,
-          // {
-          //   "in": "query",
-          //   "name": "name",
-          //   "description": "倉庫名稱",
-          //   "required": true,
-          //   "type": "string"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "addr",
-          //   "description": "倉庫地址",
-          //   "required": true,
-          //   "type": "string"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "phone",
-          //   "description": "倉庫聯絡號碼",
-          //   "required": true,
-          //   "type": "string"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "owner",
-          //   "description": "倉庫負責人/所有人",
-          //   "required": true,
-          //   "type": "integer"
-          // }
         ],
         "responses": {
           "200": {
@@ -4352,35 +3951,6 @@
             "required": true,
             "type": "string"
           }
-          // ,
-          // {
-          //   "in": "query",
-          //   "name": "name",
-          //   "description": "倉庫名稱",
-          //   "required": true,
-          //   "type": "string"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "addr",
-          //   "description": "倉庫地址",
-          //   "required": true,
-          //   "type": "string"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "phone",
-          //   "description": "倉庫聯絡號碼",
-          //   "required": true,
-          //   "type": "string"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "owner",
-          //   "description": "倉庫負責人/所有人",
-          //   "required": true,
-          //   "type": "integer"
-          // }
         ],
         "responses": {
           "200": {
@@ -4706,49 +4276,6 @@
             "required": true,
             "type": "string"
           }
-          // ,
-          // {
-          //   "in": "query",
-          //   "name": "name",
-          //   "description": "使用者名稱",
-          //   "required": true,
-          //   "type": "string"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "email",
-          //   "description": "使用者電子信箱",
-          //   "required": true,
-          //   "type": "string"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "authcode",
-          //   "description": "使用者授權代碼",
-          //   "required": true,
-          //   "type": "integer"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "password",
-          //   "description": "使用者密碼",
-          //   "required": true,
-          //   "type": "string"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "did",
-          //   "description": "使用者部門編號/ID",
-          //   "required": true,
-          //   "type": "string"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "phone",
-          //   "description": "使用者聯絡號碼",
-          //   "required": true,
-          //   "type": "string"
-          // }
         ],
         "responses": {
           "200": {
@@ -4790,49 +4317,6 @@
             "required": true,
             "type": "string"
           }
-          // ,
-          // {
-          //   "in": "query",
-          //   "name": "name",
-          //   "description": "使用者名稱",
-          //   "required": true,
-          //   "type": "string"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "email",
-          //   "description": "使用者電子信箱",
-          //   "required": true,
-          //   "type": "string"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "authcode",
-          //   "description": "使用者授權代碼",
-          //   "required": true,
-          //   "type": "integer"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "password",
-          //   "description": "使用者密碼",
-          //   "required": true,
-          //   "type": "string"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "did",
-          //   "description": "使用者部門編號/ID",
-          //   "required": true,
-          //   "type": "string"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "phone",
-          //   "description": "使用者聯絡號碼",
-          //   "required": true,
-          //   "type": "string"
-          // }
         ],
         "responses": {
           "200": {
@@ -5137,42 +4621,6 @@
             "required": true,
             "type": "string"
           }
-          // ,
-          // {
-          //   "in": "query",
-          //   "name": "type",
-          //   "description": "貨運車輛種類",
-          //   "required": true,
-          //   "type": "string"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "manuf",
-          //   "description": "貨運車輛製造商",
-          //   "required": true,
-          //   "type": "string"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "displacement",
-          //   "description": "貨運車輛從缺處理辦法編號",
-          //   "required": true,
-          //   "type": "integer"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "color",
-          //   "description": "運輸車輛顏色",
-          //   "required": true,
-          //   "type": "string"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "driver",
-          //   "description": "運輸車輛駕駛員",
-          //   "required": true,
-          //   "type": "string"
-          // }
         ],
         "responses": {
           "200": {
@@ -5214,42 +4662,6 @@
             "required": true,
             "type": "string"
           }
-          // ,
-          // {
-          //   "in": "query",
-          //   "name": "type",
-          //   "description": "貨運車輛種類",
-          //   "required": true,
-          //   "type": "string"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "manuf",
-          //   "description": "貨運車輛製造商",
-          //   "required": true,
-          //   "type": "string"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "displacement",
-          //   "description": "貨運車輛從缺處理辦法編號",
-          //   "required": true,
-          //   "type": "integer"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "color",
-          //   "description": "運輸車輛顏色",
-          //   "required": true,
-          //   "type": "string"
-          // },
-          // {
-          //   "in": "query",
-          //   "name": "driver",
-          //   "description": "運輸車輛駕駛員",
-          //   "required": true,
-          //   "type": "string"
-          // }
         ],
         "responses": {
           "200": {
