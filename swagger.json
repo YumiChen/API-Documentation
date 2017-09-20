@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "description": "POS sysytem API文件，有問題請在Line上詢問。(1)Required定義: 若不傳結果會報錯，未達到想要的效果，請自行確認該傳的參數的都傳了。(2)傳送參數皆不用使用雙引號包住\n(3)所有update方法皆無法使欄位值改為空",
+    "description": "POS sysytem API文件，有問題請在Line上詢問。(1)Required定義: 若不傳結果會報錯，未達到想要的效果，請自行確認該傳的參數的都傳了。(2)傳送參數皆不用使用雙引號包住(3)所有update方法皆無法使欄位值改為空",
     "version": "1.0.0",
     "title": "POS System API",
     "termsOfService": "http://swagger.io/terms/",
