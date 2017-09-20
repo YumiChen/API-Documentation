@@ -14,7 +14,7 @@
     }
   },
   "host": "35.189.183.246",
-  "basePath": "/POS",
+  "basePath": "/POS/",
   "tags": [
     {
       "name": "authority",
