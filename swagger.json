@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "description": "POS sysytem API文件，有問題請在Line上詢問。(1)Required定義: 若不傳結果會報錯，未達到想要的效果，請自行確認該傳的參數的都傳了。(2)傳送參數皆不用使用雙引號包住(3)所有update方法皆無法使欄位值改為空",
+    "description": "POS sysytem API文件，有問題請在Line上詢問。\n\r(1)Required定義: 若不傳結果會報錯，未達到想要的效果，請自行確認該傳的參數的都傳了。\n\r(2)傳送參數皆不用使用雙引號包住\n\r(3)所有update方法皆無法使欄位值改為空",
     "version": "1.0.0",
     "title": "POS System API",
     "termsOfService": "http://swagger.io/terms/",
@@ -895,7 +895,7 @@
         ],
         "responses": {
           "200": {
-            "description": "successful operation",
+            "description": "若查無相對應資料，則不會回傳任何結果",
             "schema": {
               "$ref": "#/definitions/Branch"
             }
@@ -1144,7 +1144,7 @@
         ],
         "responses": {
           "200": {
-            "description": "successful operation",
+            "description": "若查無相對應資料，則不會回傳任何結果",
             "schema": {
               "$ref": "#/definitions/Category"
             }
@@ -1447,7 +1447,7 @@
         ],
         "responses": {
           "200": {
-            "description": "successful operation",
+            "description": "若查無相對應資料，則不會回傳任何結果",
             "schema": {
               "$ref": "#/definitions/Department"
             }
@@ -1729,7 +1729,7 @@
         ],
         "responses": {
           "200": {
-            "description": "successful operation",
+            "description": "若查無相對應資料，則不會回傳任何結果",
             "schema": {
               "$ref": "#/definitions/Driver"
             }
@@ -2018,7 +2018,7 @@
         ],
         "responses": {
           "200": {
-            "description": "successful operation",
+            "description": "若查無相對應資料，則不會回傳任何結果",
             "schema": {
               "$ref": "#/definitions/Inventory"
             }
@@ -2370,7 +2370,7 @@
         ],
         "responses": {
           "200": {
-            "description": "successful operation",
+            "description": "若查無相對應資料，則不會回傳任何結果",
             "schema": {
               "$ref": "#/definitions/Item"
             }
@@ -2673,7 +2673,7 @@
         ],
         "responses": {
           "200": {
-            "description": "successful operation",
+            "description": "若查無相對應資料，則不會回傳任何結果",
             "schema": {
               "$ref": "#/definitions/Order"
             }
@@ -2962,7 +2962,7 @@
         ],
         "responses": {
           "200": {
-            "description": "successful operation",
+            "description": "若查無相對應資料，則不會回傳任何結果",
             "schema": {
               "$ref": "#/definitions/OrderDetail"
             }
@@ -3230,7 +3230,7 @@
         ],
         "responses": {
           "200": {
-            "description": "successful operation",
+            "description": "若查無相對應資料，則不會回傳任何結果",
             "schema": {
               "$ref": "#/definitions/OrderStatus"
             }
@@ -3582,7 +3582,7 @@
         ],
         "responses": {
           "200": {
-            "description": "successful operation",
+            "description": "若查無相對應資料，則不會回傳任何結果",
             "schema": {
               "$ref": "#/definitions/Sale"
             }
@@ -3913,7 +3913,7 @@
         ],
         "responses": {
           "200": {
-            "description": "successful operation",
+            "description": "若查無相對應資料，則不會回傳任何結果",
             "schema": {
               "$ref": "#/definitions/StockHouse"
             }
@@ -4279,7 +4279,7 @@
         ],
         "responses": {
           "200": {
-            "description": "successful operation",
+            "description": "若查無相對應資料，則不會回傳任何結果",
             "schema": {
               "$ref": "#/definitions/User"
             }
@@ -4624,7 +4624,7 @@
         ],
         "responses": {
           "200": {
-            "description": "successful operation",
+            "description": "若查無相對應資料，則不會回傳任何結果",
             "schema": {
               "$ref": "#/definitions/Vehicle"
             }
