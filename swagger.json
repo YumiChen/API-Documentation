@@ -568,13 +568,6 @@
             "required": true,
             "type": "integer"
           }
-          // ,{
-          //   "name": "name",
-          //   "in": "query",
-          //   "description": "授權名稱，傳遞此參數不會影響結果",
-          //   "required": false,
-          //   "type": "string"
-          // }
         ],
         "responses": {
           "200": {
