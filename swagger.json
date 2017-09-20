@@ -14,7 +14,7 @@
     }
   },
   "host": "35.189.183.246",
-  "basePath": "/POS/",
+  "basePath": "/POS",
   "tags": [
     {
       "name": "authority",
@@ -373,7 +373,7 @@
     "url": "http://swagger.io"
   },
   "paths": {
-    "json/Authority/add.do": {
+    "/json/Authority/add.do": {
       "post": {
         "tags": [
           "authority"
@@ -431,7 +431,7 @@
         ]
       }
     },
-    "json/Authority/update.do": {
+    "/json/Authority/update.do": {
       "put": {
         "tags": [
           "authority"
@@ -487,7 +487,7 @@
         ]
       }
     },
-    "json/Authority/query.do": {
+    "/json/Authority/query.do": {
       "get": {
         "tags": [
           "authority"
@@ -549,7 +549,7 @@
         ]
       }
     },
-    "json/Authority/showone.do": {
+    "/json/Authority/showone.do": {
       "get": {
         "tags": [
           "authority"
@@ -590,7 +590,7 @@
         ]
       }
     },
-    "json/Authority/delete.do": {
+    "/json/Authority/delete.do": {
       "delete": {
         "tags": [
           "authority"
@@ -636,7 +636,7 @@
         ]
       }
     },
-    "json/Branch/add.do": {
+    "/json/Branch/add.do": {
       "post": {
         "tags": [
           "branch"
@@ -713,7 +713,7 @@
         ]
       }
     },
-    "json/Branch/update.do": {
+    "/json/Branch/update.do": {
       "put": {
         "tags": [
           "branch"
@@ -790,7 +790,7 @@
         ]
       }
     },
-    "json/Branch/query.do": {
+    "/json/Branch/query.do": {
       "get": {
         "tags": [
           "branch"
@@ -873,7 +873,7 @@
         ]
       }
     },
-    "json/Branch/showone.do": {
+    "/json/Branch/showone.do": {
       "get": {
         "tags": [
           "branch"
@@ -914,7 +914,7 @@
         ]
       }
     },
-    "json/Branch/delete.do": {
+    "/json/Branch/delete.do": {
       "delete": {
         "tags": [
           "branch"
@@ -948,7 +948,7 @@
         ]
       
     },
-    "json/Category/add.do": {
+    "/json/Category/add.do": {
       "post": {
         "tags": [
           "category"
@@ -1004,7 +1004,7 @@
         ]
       }
     },
-    "json/Category/update.do": {
+    "/json/Category/update.do": {
       "put": {
         "tags": [
           "category"
@@ -1060,7 +1060,7 @@
         ]
       }
     },
-    "json/Category/query.do": {
+    "/json/Category/query.do": {
       "get": {
         "tags": [
           "category"
@@ -1122,7 +1122,7 @@
         ]
       }
     },
-    "json/Category/showone.do": {
+    "/json/Category/showone.do": {
       "get": {
         "tags": [
           "category"
@@ -1163,7 +1163,7 @@
         ]
       }
     },
-    "json/Category/delete.do": {
+    "/json/Category/delete.do": {
       "delete": {
         "tags": [
           "category"
@@ -1209,7 +1209,7 @@
         ]
       }
     },
-    "json/Department/add.do": {
+    "/json/Department/add.do": {
       "post": {
         "tags": [
           "department"
@@ -1279,7 +1279,7 @@
         ]
       }
     },
-    "json/Department/update.do": {
+    "/json/Department/update.do": {
       "put": {
         "tags": [
           "department"
@@ -1349,7 +1349,7 @@
         ]
       }
     },
-    "json/Department/query.do": {
+    "/json/Department/query.do": {
       "get": {
         "tags": [
           "department"
@@ -1425,7 +1425,7 @@
         ]
       }
     },
-    "json/Department/showone.do": {
+    "/json/Department/showone.do": {
       "get": {
         "tags": [
           "department"
@@ -1466,7 +1466,7 @@
         ]
       }
     },
-    "json/Department/delete.do": {
+    "/json/Department/delete.do": {
       "delete": {
         "tags": [
           "department"
@@ -1512,7 +1512,7 @@
         ]
       }
     },
-    "json/Driver/add.do": {
+    "/json/Driver/add.do": {
       "post": {
         "tags": [
           "driver"
@@ -1575,7 +1575,7 @@
         ]
       }
     },
-    "json/Driver/update.do": {
+    "/json/Driver/update.do": {
       "put": {
         "tags": [
           "driver"
@@ -1638,7 +1638,7 @@
         ]
       }
     },
-    "json/Driver/query.do": {
+    "//json/Driver/query.do": {
       "get": {
         "tags": [
           "driver"
@@ -1707,7 +1707,7 @@
         ]
       }
     },
-    "json/Driver/showone.do": {
+    "/json/Driver/showone.do": {
       "get": {
         "tags": [
           "driver"
@@ -1748,7 +1748,7 @@
         ]
       }
     },
-    "json/Driver/delete.do": {
+    "/json/Driver/delete.do": {
       "delete": {
         "tags": [
           "driver"
@@ -1794,7 +1794,7 @@
         ]
       }
     },
-    "json/Inventory/add.do": {
+    "/json/Inventory/add.do": {
       "post": {
         "tags": [
           "inventory"
@@ -1857,7 +1857,7 @@
         ]
       }
     },
-    "json/Inventory/update.do": {
+    "/json/Inventory/update.do": {
       "put": {
         "tags": [
           "inventory"
@@ -1920,7 +1920,7 @@
         ]
       }
     },
-    "json/Inventory/query.do": {
+    "/json/Inventory/query.do": {
       "get": {
         "tags": [
           "inventory"
@@ -1989,7 +1989,7 @@
         ]
       }
     },
-    "json/Inventory/showone.do": {
+    "/json/Inventory/showone.do": {
       "get": {
         "tags": [
           "inventory"
@@ -2037,7 +2037,7 @@
         ]
       }
     },
-    "json/Inventory/delete.do": {
+    "/json/Inventory/delete.do": {
       "delete": {
         "tags": [
           "inventory"
@@ -2090,7 +2090,7 @@
         ]
       }
     },
-    "json/Item/add.do": {
+    "/json/Item/add.do": {
       "post": {
         "tags": [
           "item"
@@ -2174,7 +2174,7 @@
         ]
       }
     },
-    "json/Item/update.do": {
+    "/json/Item/update.do": {
       "put": {
         "tags": [
           "item"
@@ -2258,7 +2258,7 @@
         ]
       }
     },
-    "json/Item/query.do": {
+    "/json/Item/query.do": {
       "get": {
         "tags": [
           "item"
@@ -2348,7 +2348,7 @@
         ]
       }
     },
-    "json/Item/showone.do": {
+    "/json/Item/showone.do": {
       "get": {
         "tags": [
           "item"
@@ -2389,7 +2389,7 @@
         ]
       }
     },
-    "json/Item/delete.do": {
+    "/json/Item/delete.do": {
       "delete": {
         "tags": [
           "item"
@@ -2435,7 +2435,7 @@
         ]
       }
     },
-    "json/Order/add.do": {
+    "/json/Order/add.do": {
       "post": {
         "tags": [
           "order"
@@ -2505,7 +2505,7 @@
         ]
       }
     },
-    "json/Order/update.do": {
+    "/json/Order/update.do": {
       "put": {
         "tags": [
           "order"
@@ -2575,7 +2575,7 @@
         ]
       }
     },
-    "json/Order/query.do": {
+    "/json/Order/query.do": {
       "get": {
         "tags": [
           "order"
@@ -2651,7 +2651,7 @@
         ]
       }
     },
-    "json/Order/showone.do": {
+    "/json/Order/showone.do": {
       "get": {
         "tags": [
           "order"
@@ -2692,7 +2692,7 @@
         ]
       }
     },
-    "json/Order/delete.do": {
+    "/json/Order/delete.do": {
       "delete": {
         "tags": [
           "order"
@@ -2738,7 +2738,7 @@
         ]
       }
     },
-    "json/OrderDetail/add.do": {
+    "/json/OrderDetail/add.do": {
       "post": {
         "tags": [
           "orderdetail"
@@ -2801,7 +2801,7 @@
         ]
       }
     },
-    "json/OrderDetail/update.do": {
+    "/json/OrderDetail/update.do": {
       "put": {
         "tags": [
           "orderdetail"
@@ -2864,7 +2864,7 @@
         ]
       }
     },
-    "json/OrderDetail/query.do": {
+    "/json/OrderDetail/query.do": {
       "get": {
         "tags": [
           "orderdetail"
@@ -2933,7 +2933,7 @@
         ]
       }
     },
-    "json/OrderDetail/showone.do": {
+    "/json/OrderDetail/showone.do": {
       "get": {
         "tags": [
           "orderdetail"
@@ -2981,7 +2981,7 @@
         ]
       }
     },
-    "json/OrderDetail/delete.do": {
+    "/json/OrderDetail/delete.do": {
       "delete": {
         "tags": [
           "orderdetail"
@@ -3034,7 +3034,7 @@
         ]
       }
     },
-    "json/OrderStatus/add.do": {
+    "/json/OrderStatus/add.do": {
       "post": {
         "tags": [
           "orderstatus"
@@ -3090,7 +3090,7 @@
         ]
       }
     },
-    "json/OrderStatus/update.do": {
+    "/json/OrderStatus/update.do": {
       "put": {
         "tags": [
           "orderstatus"
@@ -3146,7 +3146,7 @@
         ]
       }
     },
-    "json/OrderStatus/query.do": {
+    "/json/OrderStatus/query.do": {
       "get": {
         "tags": [
           "orderstatus"
@@ -3208,7 +3208,7 @@
         ]
       }
     },
-    "json/OrderStatus/showone.do": {
+    "/json/OrderStatus/showone.do": {
       "get": {
         "tags": [
           "orderstatus"
@@ -3249,7 +3249,7 @@
         ]
       }
     },
-    "json/OrderStatus/delete.do": {
+    "/json/OrderStatus/delete.do": {
       "delete": {
         "tags": [
           "orderstatus"
@@ -3295,7 +3295,7 @@
         ]
       }
     },
-    "json/Sale/add.do": {
+    "/json/Sale/add.do": {
       "post": {
         "tags": [
           "sale"
@@ -3379,7 +3379,7 @@
         ]
       }
     },
-    "json/Sale/update.do": {
+    "/json/Sale/update.do": {
       "put": {
         "tags": [
           "sale"
@@ -3463,7 +3463,7 @@
         ]
       }
     },
-    "json/Sale/query.do": {
+    "/json/Sale/query.do": {
       "get": {
         "tags": [
           "sale"
@@ -3553,7 +3553,7 @@
         ]
       }
     },
-    "json/Sale/showone.do": {
+    "/json/Sale/showone.do": {
       "get": {
         "tags": [
           "sale"
@@ -3601,7 +3601,7 @@
         ]
       }
     },
-    "json/Sale/delete.do": {
+    "/json/Sale/delete.do": {
       "delete": {
         "tags": [
           "sale"
@@ -3654,7 +3654,7 @@
         ]
       }
     },
-    "json/StockHouse/add.do": {
+    "/json/StockHouse/add.do": {
       "post": {
         "tags": [
           "stockhouse"
@@ -3731,7 +3731,7 @@
         ]
       }
     },
-    "json/StockHouse/update.do": {
+    "/json/StockHouse/update.do": {
       "put": {
         "tags": [
           "stockhouse"
@@ -3808,7 +3808,7 @@
         ]
       }
     },
-    "json/StockHouse/query.do": {
+    "/json/StockHouse/query.do": {
       "get": {
         "tags": [
           "stockhouse"
@@ -3891,7 +3891,7 @@
         ]
       }
     },
-    "json/StockHouse/showone.do": {
+    "/json/StockHouse/showone.do": {
       "get": {
         "tags": [
           "stockhouse"
@@ -3932,7 +3932,7 @@
         ]
       }
     },
-    "json/StockHouse/delete.do": {
+    "/json/StockHouse/delete.do": {
       "delete": {
         "tags": [
           "stockhouse"
@@ -3978,7 +3978,7 @@
         ]
       }
     },
-    "json/User/add.do": {
+    "/json/User/add.do": {
       "post": {
         "tags": [
           "user"
@@ -4069,7 +4069,7 @@
         ]
       }
     },
-    "json/User/update.do": {
+    "/json/User/update.do": {
       "put": {
         "tags": [
           "user"
@@ -4160,7 +4160,7 @@
         ]
       }
     },
-    "json/User/query.do": {
+    "/json/User/query.do": {
       "get": {
         "tags": [
           "user"
@@ -4257,7 +4257,7 @@
         ]
       }
     },
-    "json/User/showone.do": {
+    "/json/User/showone.do": {
       "get": {
         "tags": [
           "user"
@@ -4298,7 +4298,7 @@
         ]
       }
     },
-    "json/User/delete.do": {
+    "/json/User/delete.do": {
       "delete": {
         "tags": [
           "user"
@@ -4344,7 +4344,7 @@
         ]
       }
     },
-    "json/Vehicle/add.do": {
+    "/json/Vehicle/add.do": {
       "post": {
         "tags": [
           "vehicle"
@@ -4428,7 +4428,7 @@
         ]
       }
     },
-    "json/Vehicle/update.do": {
+    "/json/Vehicle/update.do": {
       "put": {
         "tags": [
           "vehicle"
@@ -4512,7 +4512,7 @@
         ]
       }
     },
-    "json/Vehicle/query.do": {
+    "/json/Vehicle/query.do": {
       "get": {
         "tags": [
           "vehicle"
@@ -4602,7 +4602,7 @@
         ]
       }
     },
-    "json/Vehicle/showone.do": {
+    "/json/Vehicle/showone.do": {
       "get": {
         "tags": [
           "vehicle"
@@ -4643,7 +4643,7 @@
         ]
       }
     },
-    "json/Vehicle/delete.do": {
+    "/json/Vehicle/delete.do": {
       "delete": {
         "tags": [
           "vehicle"
@@ -4689,7 +4689,7 @@
         ]
       }
     },
-    "json/Analysis/query.do": {
+    "/json/Analysis/query.do": {
       "get": {
         "tags": [
           "analysis"
