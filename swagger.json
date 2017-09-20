@@ -937,7 +937,7 @@
         ],
         "responses": {
           "200": {
-            "description": "若查無相對應資料，則不會回傳任何結果",
+            "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/Branch"
             }
@@ -1221,7 +1221,7 @@
         ],
         "responses": {
           "200": {
-            "description": "若查無相對應資料，則不會回傳任何結果",
+            "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/Category"
             }
@@ -1552,7 +1552,7 @@
         ],
         "responses": {
           "200": {
-            "description": "若查無相對應資料，則不會回傳任何結果",
+            "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/Department"
             }
@@ -1871,7 +1871,7 @@
         ],
         "responses": {
           "200": {
-            "description": "若查無相對應資料，則不會回傳任何結果",
+            "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/Driver"
             }
@@ -2183,7 +2183,7 @@
         ],
         "responses": {
           "200": {
-            "description": "若查無相對應資料，則不會回傳任何結果",
+            "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/Inventory"
             }
@@ -2579,7 +2579,7 @@
         ],
         "responses": {
           "200": {
-            "description": "若查無相對應資料，則不會回傳任何結果",
+            "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/Item"
             }
@@ -2940,7 +2940,7 @@
         ],
         "responses": {
           "200": {
-            "description": "若查無相對應資料，則不會回傳任何結果",
+            "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/Order"
             }
@@ -3259,7 +3259,7 @@
         ],
         "responses": {
           "200": {
-            "description": "若查無相對應資料，則不會回傳任何結果",
+            "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/OrderDetail"
             }
@@ -3543,7 +3543,7 @@
         ],
         "responses": {
           "200": {
-            "description": "若查無相對應資料，則不會回傳任何結果",
+            "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/OrderStatus"
             }
@@ -3932,7 +3932,7 @@
         ],
         "responses": {
           "200": {
-            "description": "若查無相對應資料，則不會回傳任何結果",
+            "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/Sale"
             }
@@ -4321,7 +4321,7 @@
         ],
         "responses": {
           "200": {
-            "description": "若查無相對應資料，則不會回傳任何結果",
+            "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/StockHouse"
             }
@@ -4759,7 +4759,7 @@
         ],
         "responses": {
           "200": {
-            "description": "若查無相對應資料，則不會回傳任何結果",
+            "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/User"
             }
@@ -5183,7 +5183,7 @@
         ],
         "responses": {
           "200": {
-            "description": "若查無相對應資料，則不會回傳任何結果",
+            "description": "successful operation",
             "schema": {
               "$ref": "#/definitions/Vehicle"
             }
