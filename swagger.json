@@ -221,6 +221,9 @@
         },
         "status": {
           "type": "integer"
+        },
+        "sourceid": {
+            "type": "string"
         }
       }
     },
@@ -337,7 +340,7 @@
           "type": "string"
         },
         "driver": {
-          "type": "integer"
+          "type": "string"
         }
       }
     },
@@ -2461,7 +2464,7 @@
           {
             "in": "query",
             "name": "senderid",
-            "description": "出貨倉庫/分店ID",
+            "description": "運貨司機ID/員工編號",
             "required": true,
             "type": "string"
           },
@@ -2478,6 +2481,13 @@
             "description": "訂單處理狀況",
             "required": true,
             "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "sourceid",
+            "description": "出貨倉庫/分店ID",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -2528,7 +2538,7 @@
           {
             "in": "query",
             "name": "senderid",
-            "description": "出貨倉庫/分店ID",
+            "description": "運貨司機ID/員工編號",
             "required": false,
             "type": "string"
           },
@@ -2545,6 +2555,13 @@
             "description": "訂單處理狀況",
             "required": false,
             "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "sourceid",
+            "description": "出貨倉庫/分店ID",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -2598,7 +2615,7 @@
           {
             "in": "query",
             "name": "senderid",
-            "description": "出貨倉庫/分店ID",
+            "description": "運貨司機ID/員工編號",
             "required": false,
             "type": "string"
           },
@@ -2615,6 +2632,13 @@
             "description": "訂單處理狀況",
             "required": false,
             "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "sourceid",
+            "description": "出貨倉庫/分店ID",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -2670,6 +2694,13 @@
             "description": "訂單ID,為自動產生的UUID",
             "required": false,
             "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "sourceid",
+            "description": "出貨倉庫/分店ID",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -2710,6 +2741,13 @@
             "name": "id",
             "description": "訂單ID,為自動產生的UUID",
             "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "sourceid",
+            "description": "出貨倉庫/分店ID",
+            "required": true,
             "type": "string"
           }
         ],
