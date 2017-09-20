@@ -1,12 +1,12 @@
 {
   "swagger": "2.0",
   "info": {
-    "description": "This is a sample server Petstore server.  You can find out more about     Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).      For this sample, you can use the api key `special-key` to test the authorization     filters.",
+    "description": "POS sysytem API文件，有問題請在Line上詢問。\r\n(1)Required定義: 若不傳結果會報錯，未達到想要的效果，請自行確認該傳的參數的都傳了。\r\n(2)傳送參數皆不用使用雙引號包住\n(3)所有update方法皆無法使欄位值改為空",
     "version": "1.0.0",
     "title": "POS System API",
     "termsOfService": "http://swagger.io/terms/",
     "contact": {
-      "email": "apiteam@swagger.io"
+      "email": ""
     },
     "license": {
       "name": "Apache 2.0",
@@ -14,7 +14,7 @@
     }
   },
   "host": "35.189.183.246",
-  "basePath": "/POS/",
+  "basePath": "/POS",
   "tags": [
     {
       "name": "authority",
@@ -937,7 +937,7 @@
         ],
         "responses": {
           "200": {
-            "description": "successful operation",
+            "description": "若查無相對應資料，則不會回傳任何結果",
             "schema": {
               "$ref": "#/definitions/Branch"
             }
@@ -1221,7 +1221,7 @@
         ],
         "responses": {
           "200": {
-            "description": "successful operation",
+            "description": "若查無相對應資料，則不會回傳任何結果",
             "schema": {
               "$ref": "#/definitions/Category"
             }
@@ -1552,7 +1552,7 @@
         ],
         "responses": {
           "200": {
-            "description": "successful operation",
+            "description": "若查無相對應資料，則不會回傳任何結果",
             "schema": {
               "$ref": "#/definitions/Department"
             }
@@ -1871,7 +1871,7 @@
         ],
         "responses": {
           "200": {
-            "description": "successful operation",
+            "description": "若查無相對應資料，則不會回傳任何結果",
             "schema": {
               "$ref": "#/definitions/Driver"
             }
@@ -2183,7 +2183,7 @@
         ],
         "responses": {
           "200": {
-            "description": "successful operation",
+            "description": "若查無相對應資料，則不會回傳任何結果",
             "schema": {
               "$ref": "#/definitions/Inventory"
             }
@@ -2579,7 +2579,7 @@
         ],
         "responses": {
           "200": {
-            "description": "successful operation",
+            "description": "若查無相對應資料，則不會回傳任何結果",
             "schema": {
               "$ref": "#/definitions/Item"
             }
@@ -2940,7 +2940,7 @@
         ],
         "responses": {
           "200": {
-            "description": "successful operation",
+            "description": "若查無相對應資料，則不會回傳任何結果",
             "schema": {
               "$ref": "#/definitions/Order"
             }
@@ -3259,7 +3259,7 @@
         ],
         "responses": {
           "200": {
-            "description": "successful operation",
+            "description": "若查無相對應資料，則不會回傳任何結果",
             "schema": {
               "$ref": "#/definitions/OrderDetail"
             }
@@ -3543,7 +3543,7 @@
         ],
         "responses": {
           "200": {
-            "description": "successful operation",
+            "description": "若查無相對應資料，則不會回傳任何結果",
             "schema": {
               "$ref": "#/definitions/OrderStatus"
             }
@@ -3932,7 +3932,7 @@
         ],
         "responses": {
           "200": {
-            "description": "successful operation",
+            "description": "若查無相對應資料，則不會回傳任何結果",
             "schema": {
               "$ref": "#/definitions/Sale"
             }
@@ -4321,7 +4321,7 @@
         ],
         "responses": {
           "200": {
-            "description": "successful operation",
+            "description": "若查無相對應資料，則不會回傳任何結果",
             "schema": {
               "$ref": "#/definitions/StockHouse"
             }
@@ -4759,7 +4759,7 @@
         ],
         "responses": {
           "200": {
-            "description": "successful operation",
+            "description": "若查無相對應資料，則不會回傳任何結果",
             "schema": {
               "$ref": "#/definitions/User"
             }
@@ -5183,7 +5183,7 @@
         ],
         "responses": {
           "200": {
-            "description": "successful operation",
+            "description": "若查無相對應資料，則不會回傳任何結果",
             "schema": {
               "$ref": "#/definitions/Vehicle"
             }
