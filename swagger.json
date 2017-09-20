@@ -935,8 +935,19 @@
           }
         ],
         "responses": {
-          "400": {
-            "description": "Invalid status value"
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Invalid input"
           }
         },
         "security": [
