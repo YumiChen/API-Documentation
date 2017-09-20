@@ -1,0 +1,5385 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is a sample server Petstore server.  You can find out more about     Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).      For this sample, you can use the api key `special-key` to test the authorization     filters.",
+    "version": "1.0.0",
+    "title": "POS System API",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "apiteam@swagger.io"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "35.189.183.246",
+  "basePath": "/POS/",
+  "tags": [
+    {
+      "name": "authority",
+      "description": "授權種類"
+    },
+    {
+      "name": "branch",
+      "description": "分店資訊"
+    },
+    {
+      "name": "category",
+      "description": "商品分類"
+    },
+    {
+      "name": "department",
+      "description": "公司部門"
+    },
+    {
+      "name": "driver",
+      "description": "貨運駕駛員"
+    },
+    {
+      "name": "inventory",
+      "description": "商品盤點"
+    },
+    {
+      "name": "item",
+      "description": "商品種類"
+    },
+    {
+      "name": "order",
+      "description": "訂單列表"
+    },
+    {
+      "name": "orderdetail",
+      "description": "訂單詳細"
+    },
+    {
+      "name": "orderstatus",
+      "description": "訂單處理狀態列表"
+    },
+    {
+      "name": "sale",
+      "description": "銷售情況"
+    },
+    {
+      "name": "stockhouse",
+      "description": "各倉庫資訊"
+    },
+    {
+      "name": "user",
+      "description": "使用者列表"
+    },
+    {
+      "name": "vehicle",
+      "description": "貨運交通工具列表"
+    },
+    {
+      "name": "analysis",
+      "description": "分析資料來源"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "securityDefinitions": {
+    "petstore_auth": {
+      "type": "oauth2",
+      "authorizationUrl": "http://petstore.swagger.io/oauth/dialog",
+      "flow": "implicit",
+      "scopes": {
+        "write:pets": "modify pets in your account",
+        "read:pets": "read your pets"
+      }
+    },
+    "api_key": {
+      "type": "apiKey",
+      "name": "api_key",
+      "in": "header"
+    }
+  },
+  "definitions": {
+    "Authority": {
+      "type": "object",
+      "properties": {
+        "authcode": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "Branch": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "addr": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string"
+        }
+      }
+    },
+    "Category": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "Department": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "addr": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        }
+      }
+    },
+    "Driver": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        }
+      }
+    },
+    "Inventory": {
+      "type": "object",
+      "properties": {
+        "sid": {
+          "type": "string"
+        },
+        "iid": {
+          "type": "string"
+        },
+        "difference": {
+          "type": "integer"
+        }
+      }
+    },
+    "Item": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "menuf": {
+          "type": "string"
+        },
+        "price": {
+          "type": "integer"
+        },
+        "category": {
+          "type": "integer"
+        },
+        "stock": {
+          "type": "integer"
+        }
+      }
+    },
+    "Order": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "senderid": {
+          "type": "string"
+        },
+        "senddate": {
+          "type": "string"
+        },
+        "status": {
+          "type": "integer"
+        }
+      }
+    },
+    "OrderDetail": {
+      "type": "object",
+      "properties": {
+        "oid": {
+          "type": "string"
+        },
+        "iid": {
+          "type": "string"
+        },
+        "ordnum": {
+          "type": "integer"
+        }
+      }
+    },
+    "OrderStatus": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "Sale": {
+      "type": "object",
+      "properties": {
+        "iid": {
+          "type": "string"
+        },
+        "bid": {
+          "type": "integer"
+        },
+        "num": {
+          "type": "integer"
+        },
+        "month": {
+          "type": "integer"
+        },
+        "day": {
+          "type": "integer"
+        },
+        "year": {
+          "type": "integer"
+        }
+      }
+    },
+    "StockHouse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "addr": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string"
+        }
+      }
+    },
+    "User": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "authcode": {
+          "type": "integer"
+        },
+        "password": {
+          "type": "string"
+        },
+        "did": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        }
+      }
+    },
+    "Vehicle": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "manuf": {
+          "type": "string"
+        },
+        "displacement": {
+          "type": "integer"
+        },
+        "color": {
+          "type": "string"
+        },
+        "driver": {
+          "type": "integer"
+        }
+      }
+    },
+    "AnalysisResult": {
+      "type": "object",
+      "properties": {
+        "year": {
+          "type": "integer"
+        },
+        "month": {
+          "type": "integer"
+        },
+        "day": {
+          "type": "integer"
+        },
+        "profit": {
+          "type": "integer"
+        },
+        "itemname": {
+          "type": "string"
+        },
+        "branchname": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Find out more about Swagger",
+    "url": "http://swagger.io"
+  },
+  "paths": {
+    "json/Authority/add.do": {
+      "post": {
+        "tags": [
+          "authority"
+        ],
+        "summary": "新增授權種類",
+        "description": "",
+        "operationId": "add.do",
+        "consumes": [
+          "Integer",
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "authcode",
+            "description": "授權代碼",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "description": "授權名稱",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/Authority/update.do": {
+      "put": {
+        "tags": [
+          "authority"
+        ],
+        "summary": "更新授權種類",
+        "description": "更新授權種類",
+        "operationId": "findPetsByStatus",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "authcode",
+            "in": "query",
+            "description": "查找要改變的授權的根據，無法被修改",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "要修改成的名稱",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Authority": {
+                  "$ref": "#/definitions/Authority"
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/Authority/query.do": {
+      "get": {
+        "tags": [
+          "authority"
+        ],
+        "summary": "搜尋授權種類",
+        "description": "搜尋授權種類，不傳任何參數即傳回所有資料",
+        "operationId": "findPetsByStatus",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "authcode",
+            "in": "query",
+            "description": "授權代號",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "授權名稱",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                },
+                "count": {
+                  "type": "integer"
+                },
+                "list": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Authority"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/Authority/showone.do": {
+      "get": {
+        "tags": [
+          "authority"
+        ],
+        "summary": "搜尋單一授權種類",
+        "description": "搜尋單一授權種類",
+        "operationId": "findPetsByStatus",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "authcode",
+            "in": "query",
+            "description": "授權代號",
+            "required": true,
+            "type": "integer"
+          }
+          // ,{
+          //   "name": "name",
+          //   "in": "query",
+          //   "description": "授權名稱，傳遞此參數不會影響結果",
+          //   "required": false,
+          //   "type": "string"
+          // }
+        ],
+        "responses": {
+          "200": {
+            "description": "若查無相對應資料，則不會回傳任何結果",
+            "schema": {
+              "$ref": "#/definitions/Authority"
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/Authority/delete.do": {
+      "delete": {
+        "tags": [
+          "authority"
+        ],
+        "summary": "刪除特定授權種類",
+        "description": "刪除特定授權種類",
+        "operationId": "findPetsByStatus",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "authcode",
+            "in": "query",
+            "description": "刪除特定授權種類的依據",
+            "required": true,
+            "type": "integer"
+          }
+          // ,{
+          //   "name": "name",
+          //   "in": "query",
+          //   "description": "傳遞此參數不影響結果",
+          //   "required": false,
+          //   "type": "string"
+          // }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/Branch/add.do": {
+      "post": {
+        "tags": [
+          "branch"
+        ],
+        "summary": "新增分店資訊",
+        "description": "新增分店資訊",
+        "operationId": "branchadd",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "分店ID",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "description": "分店名稱",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "addr",
+            "description": "分店地址",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "phone",
+            "description": "分店號碼",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "owner",
+            "description": "分店負責人/所有人",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/Branch/update.do": {
+      "put": {
+        "tags": [
+          "branch"
+        ],
+        "summary": "更新分店資訊",
+        "description": "更新分店資訊",
+        "operationId": "branchupdate",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "分店ID",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "description": "分店名稱",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "addr",
+            "description": "分店地址",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "phone",
+            "description": "分店號碼",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "owner",
+            "description": "分店負責人/所有人",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Authority": {
+                  "$ref": "#/definitions/Branch"
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/Branch/query.do": {
+      "get": {
+        "tags": [
+          "branch"
+        ],
+        "summary": "搜尋分店資訊",
+        "description": "搜尋分店資訊",
+        "operationId": "branchquery",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "分店ID",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "description": "分店名稱",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "addr",
+            "description": "分店地址",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "phone",
+            "description": "分店號碼",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "owner",
+            "description": "分店負責人/所有人",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                },
+                "count": {
+                  "type": "integer"
+                },
+                "list": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Branch"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/Branch/showone.do": {
+      "get": {
+        "tags": [
+          "branch"
+        ],
+        "summary": "搜尋分店資訊",
+        "description": "搜尋分店資訊",
+        "operationId": "branchshowone",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "分店ID",
+            "required": true,
+            "type": "integer"
+          }
+          // ,{
+          //   "in": "query",
+          //   "name": "name",
+          //   "description": "分店名稱",
+          //   "required": false,
+          //   "type": "string"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "addr",
+          //   "description": "分店地址",
+          //   "required": false,
+          //   "type": "string"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "phone",
+          //   "description": "分店號碼",
+          //   "required": false,
+          //   "type": "string"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "owner",
+          //   "description": "分店負責人/所有人",
+          //   "required": false,
+          //   "type": "string"
+          // }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Branch"
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/Branch/delete.do": {
+      "delete": {
+        "tags": [
+          "branch"
+        ],
+        "summary": "刪除單一分店資訊",
+        "description": "刪除單一分店資訊",
+        "operationId": "branchdelete",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "分店ID",
+            "required": true,
+            "type": "integer"
+          }
+          // ,{
+          //   "in": "query",
+          //   "name": "name",
+          //   "description": "分店名稱",
+          //   "required": false,
+          //   "type": "string"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "addr",
+          //   "description": "分店地址",
+          //   "required": false,
+          //   "type": "string"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "phone",
+          //   "description": "分店號碼",
+          //   "required": false,
+          //   "type": "string"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "owner",
+          //   "description": "分店負責人/所有人",
+          //   "required": false,
+          //   "type": "string"
+          // }
+        ],
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      
+    },
+    "json/Category/add.do": {
+      "post": {
+        "tags": [
+          "category"
+        ],
+        "summary": "新增商品種類",
+        "description": "新增商品種類",
+        "operationId": "categoryadd",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "商品種類ID",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "description": "商品種類名稱",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/Category/update.do": {
+      "put": {
+        "tags": [
+          "category"
+        ],
+        "summary": "修改商品種類",
+        "description": "修改商品種類",
+        "operationId": "categoryupdate",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "商品種類ID",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "description": "商品種類名稱",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Authority": {
+                  "$ref": "#/definitions/Category"
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/Category/query.do": {
+      "get": {
+        "tags": [
+          "category"
+        ],
+        "summary": "搜尋商品種類",
+        "description": "搜尋商品種類",
+        "operationId": "categoryquery",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "商品種類ID",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "description": "商品種類名稱",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                },
+                "count": {
+                  "type": "integer"
+                },
+                "list": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Category"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/Category/showone.do": {
+      "get": {
+        "tags": [
+          "category"
+        ],
+        "summary": "搜尋單一商品種類",
+        "description": "搜尋單一商品種類",
+        "operationId": "categoryshowone",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "商品種類ID",
+            "required": true,
+            "type": "integer"
+          }
+          // ,{
+          //   "in": "query",
+          //   "name": "name",
+          //   "description": "商品種類名稱",
+          //   "required": true,
+          //   "type": "string"
+          // }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Category"
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/Category/delete.do": {
+      "delete": {
+        "tags": [
+          "category"
+        ],
+        "summary": "刪除單一商品種類",
+        "description": "刪除單一商品種類",
+        "operationId": "categorydelete",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "商品種類ID",
+            "required": true,
+            "type": "integer"
+          }
+          // ,{
+          //   "in": "query",
+          //   "name": "name",
+          //   "description": "商品種類名稱",
+          //   "required": true,
+          //   "type": "string"
+          // }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/Department/add.do": {
+      "post": {
+        "tags": [
+          "department"
+        ],
+        "summary": "新增公司部門資訊",
+        "description": "新增公司部門資訊",
+        "operationId": "add.do",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "公司部門簡稱(作為PK及ID)",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "description": "公司部門名稱",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "addr",
+            "description": "公司部門地址",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "phone",
+            "description": "公司部門電話號碼",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/Department/update.do": {
+      "put": {
+        "tags": [
+          "department"
+        ],
+        "summary": "修改公司部門資訊",
+        "description": "修改公司部門資訊",
+        "operationId": "findPetsByStatus",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "公司部門簡稱(作為PK及ID)",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "description": "公司部門名稱",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "addr",
+            "description": "公司部門地址",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "phone",
+            "description": "公司部門電話號碼",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Authority": {
+                  "$ref": "#/definitions/Department"
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/Department/query.do": {
+      "get": {
+        "tags": [
+          "department"
+        ],
+        "summary": "搜尋公司部門資訊",
+        "description": "搜尋公司部門資訊",
+        "operationId": "findPetsByStatus",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "公司部門簡稱(作為PK及ID)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "description": "公司部門名稱",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "addr",
+            "description": "公司部門地址",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "phone",
+            "description": "公司部門電話號碼",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                },
+                "count": {
+                  "type": "integer"
+                },
+                "list": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Department"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/Department/showone.do": {
+      "get": {
+        "tags": [
+          "department"
+        ],
+        "summary": "搜尋單一部門資訊",
+        "description": "搜尋單一部門資訊",
+        "operationId": "findPetsByStatus",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "公司部門簡稱(作為PK及ID)",
+            "required": true,
+            "type": "string"
+          }
+          // ,{
+          //   "in": "query",
+          //   "name": "name",
+          //   "description": "公司部門名稱",
+          //   "required": true,
+          //   "type": "string"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "addr",
+          //   "description": "公司部門地址",
+          //   "required": true,
+          //   "type": "string"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "phone",
+          //   "description": "公司部門電話號碼",
+          //   "required": true,
+          //   "type": "string"
+          // }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Department"
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/Department/delete.do": {
+      "delete": {
+        "tags": [
+          "department"
+        ],
+        "summary": "刪除公司部門資訊",
+        "description": "刪除公司部門資訊",
+        "operationId": "findPetsByStatus",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "公司部門簡稱(作為PK及ID)",
+            "required": true,
+            "type": "string"
+          }
+          // ,
+          // {
+          //   "in": "query",
+          //   "name": "name",
+          //   "description": "公司部門名稱",
+          //   "required": true,
+          //   "type": "string"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "addr",
+          //   "description": "公司部門地址",
+          //   "required": true,
+          //   "type": "string"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "phone",
+          //   "description": "公司部門電話號碼",
+          //   "required": true,
+          //   "type": "string"
+          // }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/Driver/add.do": {
+      "post": {
+        "tags": [
+          "driver"
+        ],
+        "summary": "新增貨運駕駛員資訊",
+        "description": "新增貨運駕駛員資訊",
+        "operationId": "add.do",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "貨運駕駛員ID，為員工編號",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "description": "貨運駕駛員名稱",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "phone",
+            "description": "貨運駕駛員聯絡號碼",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/Driver/update.do": {
+      "put": {
+        "tags": [
+          "driver"
+        ],
+        "summary": "修改貨運駕駛員資訊",
+        "description": "修改貨運駕駛員資訊",
+        "operationId": "findPetsByStatus",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "貨運駕駛員ID，為員工編號",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "description": "貨運駕駛員名稱",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "phone",
+            "description": "貨運駕駛員聯絡號碼",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Authority": {
+                  "$ref": "#/definitions/Driver"
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/Driver/query.do": {
+      "get": {
+        "tags": [
+          "driver"
+        ],
+        "summary": "搜尋貨運駕駛員資訊",
+        "description": "搜尋貨運駕駛員資訊",
+        "operationId": "findPetsByStatus",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "貨運駕駛員ID，為員工編號",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "description": "貨運駕駛員名稱",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "phone",
+            "description": "貨運駕駛員聯絡號碼",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                },
+                "count": {
+                  "type": "integer"
+                },
+                "list": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Driver"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/Driver/showone.do": {
+      "get": {
+        "tags": [
+          "driver"
+        ],
+        "summary": "搜尋單一貨運駕駛員資訊",
+        "description": "搜尋單一貨運駕駛員資訊",
+        "operationId": "findPetsByStatus",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "貨運駕駛員ID，為員工編號",
+            "required": true,
+            "type": "string"
+          }
+          // ,
+          // {
+          //   "in": "query",
+          //   "name": "name",
+          //   "description": "貨運駕駛員名稱",
+          //   "required": true,
+          //   "type": "string"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "phone",
+          //   "description": "貨運駕駛員聯絡號碼",
+          //   "required": false,
+          //   "type": "string"
+          // }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Driver"
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/Driver/delete.do": {
+      "delete": {
+        "tags": [
+          "driver"
+        ],
+        "summary": "刪除單一貨運駕駛員資訊",
+        "description": "刪除單一貨運駕駛員資訊",
+        "operationId": "findPetsByStatus",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "貨運駕駛員ID，為員工編號",
+            "required": true,
+            "type": "string"
+          }
+          // ,
+          // {
+          //   "in": "query",
+          //   "name": "name",
+          //   "description": "貨運駕駛員名稱",
+          //   "required": true,
+          //   "type": "string"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "phone",
+          //   "description": "貨運駕駛員聯絡號碼",
+          //   "required": false,
+          //   "type": "string"
+          // }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/Inventory/add.do": {
+      "post": {
+        "tags": [
+          "inventory"
+        ],
+        "summary": "新增商品盤點資訊",
+        "description": "新增商品盤點資訊",
+        "operationId": "add.do",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "sid",
+            "description": "盤點倉庫ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "iid",
+            "description": "商品ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "difference",
+            "description": "盤損(可能為正或為負，若為null則表示此倉庫商品未盤點)",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/Inventory/update.do": {
+      "put": {
+        "tags": [
+          "inventory"
+        ],
+        "summary": "修改商品盤點數量",
+        "description": "修改商品盤點數量",
+        "operationId": "findPetsByStatus",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "sid",
+            "description": "盤點倉庫ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "iid",
+            "description": "商品ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "difference",
+            "description": "盤損(可能為正或為負，若為null則表示此倉庫商品未盤點),無法修改為空值",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Authority": {
+                  "$ref": "#/definitions/Inventory"
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/Inventory/query.do": {
+      "get": {
+        "tags": [
+          "inventory"
+        ],
+        "summary": "搜尋商品盤點資訊",
+        "description": "搜尋商品盤點資訊",
+        "operationId": "findPetsByStatus",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "sid",
+            "description": "盤點倉庫ID",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "iid",
+            "description": "商品ID",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "difference",
+            "description": "盤損(可能為正或為負，若為null則表示此倉庫商品未盤點)",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                },
+                "count": {
+                  "type": "integer"
+                },
+                "list": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Inventory"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/Inventory/showone.do": {
+      "get": {
+        "tags": [
+          "inventory"
+        ],
+        "summary": "搜尋單一商品盤點資訊",
+        "description": "搜尋單一商品盤點資訊",
+        "operationId": "findPetsByStatus",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "sid",
+            "description": "盤點倉庫ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "iid",
+            "description": "商品ID",
+            "required": true,
+            "type": "string"
+          }
+          // ,
+          // {
+          //   "in": "query",
+          //   "name": "difference",
+          //   "description": "盤損(可能為正或為負，若為null則表示此倉庫商品未盤點)",
+          //   "required": false,
+          //   "type": "integer"
+          // }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Inventory"
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/Inventory/delete.do": {
+      "delete": {
+        "tags": [
+          "inventory"
+        ],
+        "summary": "刪除單一商品盤點資訊",
+        "description": "刪除單一商品盤點資訊",
+        "operationId": "findPetsByStatus",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "sid",
+            "description": "盤點倉庫ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "iid",
+            "description": "商品ID",
+            "required": true,
+            "type": "string"
+          }
+          // ,
+          // {
+          //   "in": "query",
+          //   "name": "difference",
+          //   "description": "盤損(可能為正或為負，若為null則表示此倉庫商品未盤點)",
+          //   "required": true,
+          //   "type": "integer"
+          // }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/Item/add.do": {
+      "post": {
+        "tags": [
+          "item"
+        ],
+        "summary": "新增商品種類資訊",
+        "description": "新增商品種類資訊",
+        "operationId": "add.do",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "商品種類ID，為商品條碼",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "description": "商品種類名稱",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "menuf",
+            "description": "商品製作商",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "price",
+            "description": "商品價格",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "category",
+            "description": "商品種類",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "stock",
+            "description": "商品庫存數量",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/Item/update.do": {
+      "put": {
+        "tags": [
+          "item"
+        ],
+        "summary": "修改商品種類資訊",
+        "description": "修改商品種類資訊",
+        "operationId": "findPetsByStatus",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "商品種類ID，為商品條碼",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "description": "商品種類名稱",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "menuf",
+            "description": "商品製作商",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "price",
+            "description": "商品價格",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "category",
+            "description": "商品種類",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "stock",
+            "description": "商品庫存數量",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Authority": {
+                  "$ref": "#/definitions/Item"
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/Item/query.do": {
+      "get": {
+        "tags": [
+          "item"
+        ],
+        "summary": "搜尋商品種類資訊",
+        "description": "搜尋商品種類資訊",
+        "operationId": "itemquery",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "商品種類ID，為商品條碼",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "description": "商品種類名稱",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "menuf",
+            "description": "商品製作商",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "price",
+            "description": "商品價格",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "category",
+            "description": "商品種類",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "stock",
+            "description": "商品庫存數量",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                },
+                "count": {
+                  "type": "integer"
+                },
+                "list": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Item"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/Item/showone.do": {
+      "get": {
+        "tags": [
+          "item"
+        ],
+        "summary": "搜尋單一商品種類資訊",
+        "description": "搜尋單一商品種類資訊",
+        "operationId": "itemshowone",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "商品種類ID，為商品條碼",
+            "required": true,
+            "type": "string"
+          }
+          // ,
+          // {
+          //   "in": "query",
+          //   "name": "name",
+          //   "description": "商品種類名稱",
+          //   "required": true,
+          //   "type": "string"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "menuf",
+          //   "description": "商品製作商",
+          //   "required": true,
+          //   "type": "string"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "price",
+          //   "description": "商品價格",
+          //   "required": true,
+          //   "type": "integer"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "category",
+          //   "description": "商品種類",
+          //   "required": true,
+          //   "type": "integer"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "stock",
+          //   "description": "商品庫存數量",
+          //   "required": true,
+          //   "type": "integer"
+          // }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Item"
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/Item/delete.do": {
+      "delete": {
+        "tags": [
+          "item"
+        ],
+        "summary": "刪除單一商品種類資訊",
+        "description": "刪除單一商品種類資訊",
+        "operationId": "itemdelete",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "商品種類ID，為商品條碼",
+            "required": true,
+            "type": "string"
+          }
+          // ,
+          // {
+          //   "in": "query",
+          //   "name": "name",
+          //   "description": "商品種類名稱",
+          //   "required": true,
+          //   "type": "string"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "menuf",
+          //   "description": "商品製作商",
+          //   "required": true,
+          //   "type": "string"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "price",
+          //   "description": "商品價格",
+          //   "required": true,
+          //   "type": "integer"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "category",
+          //   "description": "商品種類",
+          //   "required": true,
+          //   "type": "integer"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "stock",
+          //   "description": "商品庫存數量",
+          //   "required": true,
+          //   "type": "integer"
+          // }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/Order/add.do": {
+      "post": {
+        "tags": [
+          "order"
+        ],
+        "summary": "新增訂單",
+        "description": "新增訂單",
+        "operationId": "add.do",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "訂單條碼編號",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "senderid",
+            "description": "出貨倉庫/分店ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "senddate",
+            "description": "出貨日期",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "status",
+            "description": "訂單處理狀況",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/Order/update.do": {
+      "put": {
+        "tags": [
+          "order"
+        ],
+        "summary": "修改訂單",
+        "description": "修改訂單",
+        "operationId": "findPetsByStatus",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "訂單ID,為自動產生的UUID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "senderid",
+            "description": "出貨倉庫/分店ID",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "senddate",
+            "description": "出貨日期",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "status",
+            "description": "訂單處理狀況",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Authority": {
+                  "$ref": "#/definitions/Order"
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/Order/query.do": {
+      "get": {
+        "tags": [
+          "order"
+        ],
+        "summary": "搜尋訂單",
+        "description": "搜尋訂單",
+        "operationId": "findPetsByStatus",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "訂單ID,為自動產生的UUID",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "senderid",
+            "description": "出貨倉庫/分店ID",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "senddate",
+            "description": "出貨日期",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "status",
+            "description": "訂單處理狀況",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                },
+                "count": {
+                  "type": "integer"
+                },
+                "list": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Order"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/Order/showone.do": {
+      "get": {
+        "tags": [
+          "order"
+        ],
+        "summary": "搜尋單一訂單",
+        "description": "搜尋單一訂單",
+        "operationId": "ordershowone",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "訂單ID,為自動產生的UUID",
+            "required": false,
+            "type": "string"
+          }
+          // ,
+          // {
+          //   "in": "query",
+          //   "name": "senderid",
+          //   "description": "出貨倉庫/分店ID",
+          //   "required": true,
+          //   "type": "string"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "senddate",
+          //   "description": "出貨日期",
+          //   "required": true,
+          //   "type": "string"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "status",
+          //   "description": "訂單處理狀況",
+          //   "required": true,
+          //   "type": "integer"
+          // }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Order"
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/Order/delete.do": {
+      "delete": {
+        "tags": [
+          "order"
+        ],
+        "summary": "刪除單一訂單",
+        "description": "刪除單一訂單",
+        "operationId": "findPetsByStatus",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "訂單ID,為自動產生的UUID",
+            "required": false,
+            "type": "string"
+          }
+          // ,
+          // {
+          //   "in": "query",
+          //   "name": "senderid",
+          //   "description": "出貨倉庫/分店ID",
+          //   "required": true,
+          //   "type": "string"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "senddate",
+          //   "description": "出貨日期",
+          //   "required": true,
+          //   "type": "string"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "status",
+          //   "description": "訂單處理狀況",
+          //   "required": true,
+          //   "type": "integer"
+          // }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/OrderDetail/add.do": {
+      "post": {
+        "tags": [
+          "orderdetail"
+        ],
+        "summary": "新增訂單詳細資訊",
+        "description": "新增訂單詳細資訊",
+        "operationId": "orderdetailadd",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "oid",
+            "description": "訂單編號",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "iid",
+            "description": "商品編號",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "ordnum",
+            "description": "訂購/調貨數量",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/OrderDetail/update.do": {
+      "put": {
+        "tags": [
+          "orderdetail"
+        ],
+        "summary": "修改訂單詳細資訊",
+        "description": "修改訂單詳細資訊",
+        "operationId": "orderdetailupdate",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "oid",
+            "description": "訂單編號",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "iid",
+            "description": "商品編號",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "ordnum",
+            "description": "訂購/調貨數量",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Authority": {
+                  "$ref": "#/definitions/OrderDetail"
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/OrderDetail/query.do": {
+      "get": {
+        "tags": [
+          "orderdetail"
+        ],
+        "summary": "搜尋訂單詳細資訊",
+        "description": "搜尋訂單詳細資訊",
+        "operationId": "findPetsByStatus",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "oid",
+            "description": "訂單編號",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "iid",
+            "description": "商品編號",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "ordnum",
+            "description": "訂購/調貨數量",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                },
+                "count": {
+                  "type": "integer"
+                },
+                "list": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/OrderDetail"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/OrderDetail/showone.do": {
+      "get": {
+        "tags": [
+          "orderdetail"
+        ],
+        "summary": "搜尋單一訂單詳細資訊",
+        "description": "搜尋單一訂單詳細資訊",
+        "operationId": "findPetsByStatus",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "oid",
+            "description": "訂單編號",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "iid",
+            "description": "商品編號",
+            "required": true,
+            "type": "string"
+          }
+          // ,
+          // {
+          //   "in": "query",
+          //   "name": "ordnum",
+          //   "description": "訂購/調貨數量",
+          //   "required": true,
+          //   "type": "integer"
+          // }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/OrderDetail"
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/OrderDetail/delete.do": {
+      "delete": {
+        "tags": [
+          "orderdetail"
+        ],
+        "summary": "刪除單一訂單詳細資訊",
+        "description": "刪除單一訂單詳細資訊",
+        "operationId": "findPetsByStatus",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "oid",
+            "description": "訂單編號",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "iid",
+            "description": "商品編號",
+            "required": true,
+            "type": "string"
+          }
+          // ,
+          // {
+          //   "in": "query",
+          //   "name": "ordnum",
+          //   "description": "訂購/調貨數量",
+          //   "required": true,
+          //   "type": "integer"
+          // }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/OrderStatus/add.do": {
+      "post": {
+        "tags": [
+          "orderstatus"
+        ],
+        "summary": "新增訂單狀態種類",
+        "description": "新增訂單狀態種類",
+        "operationId": "orderdetailadd",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "訂單狀態代號/ID",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "description": "訂單狀態名稱",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/OrderStatus/update.do": {
+      "put": {
+        "tags": [
+          "orderstatus"
+        ],
+        "summary": "修改訂單狀態種類",
+        "description": "修改訂單狀態種類",
+        "operationId": "orderdetailupdate",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "訂單狀態代號/ID",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "description": "訂單狀態名稱",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Authority": {
+                  "$ref": "#/definitions/OrderStatus"
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/OrderStatus/query.do": {
+      "get": {
+        "tags": [
+          "orderstatus"
+        ],
+        "summary": "搜尋訂單狀態種類",
+        "description": "搜尋訂單狀態種類",
+        "operationId": "orderstatusquery",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "訂單狀態代號/ID",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "description": "訂單狀態名稱",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                },
+                "count": {
+                  "type": "integer"
+                },
+                "list": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/OrderStatus"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/OrderStatus/showone.do": {
+      "get": {
+        "tags": [
+          "orderstatus"
+        ],
+        "summary": "搜尋單一訂單狀態種類",
+        "description": "搜尋單一訂單狀態種類",
+        "operationId": "orderstatusshowone",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "訂單狀態代號/ID",
+            "required": true,
+            "type": "integer"
+          }
+          // ,
+          // {
+          //   "in": "query",
+          //   "name": "name",
+          //   "description": "訂單狀態名稱",
+          //   "required": true,
+          //   "type": "string"
+          // }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/OrderStatus"
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/OrderStatus/delete.do": {
+      "delete": {
+        "tags": [
+          "orderstatus"
+        ],
+        "summary": "刪除單一訂單狀態種類",
+        "description": "刪除單一訂單狀態種類",
+        "operationId": "orderstatusdelete",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "訂單狀態代號/ID",
+            "required": true,
+            "type": "integer"
+          }
+          // ,
+          // {
+          //   "in": "query",
+          //   "name": "name",
+          //   "description": "訂單狀態名稱",
+          //   "required": true,
+          //   "type": "string"
+          // }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/Sale/add.do": {
+      "post": {
+        "tags": [
+          "sale"
+        ],
+        "summary": "新增銷售資訊",
+        "description": "新增銷售資訊",
+        "operationId": "saleadd",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "iid",
+            "description": "商品編號/ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "bid",
+            "description": "分店編號/ID",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "num",
+            "description": "銷售數量",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "month",
+            "description": "銷售紀錄月份",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "day",
+            "description": "銷售紀錄日期",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "year",
+            "description": "銷售紀錄年份",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/Sale/update.do": {
+      "put": {
+        "tags": [
+          "sale"
+        ],
+        "summary": "修改銷售資訊",
+        "description": "修改銷售資訊",
+        "operationId": "saleupdate",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "iid",
+            "description": "商品編號/ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "bid",
+            "description": "分店編號/ID",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "num",
+            "description": "銷售數量",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "month",
+            "description": "銷售紀錄月份",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "day",
+            "description": "銷售紀錄日期",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "year",
+            "description": "銷售紀錄年份",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Authority": {
+                  "$ref": "#/definitions/Sale"
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/Sale/query.do": {
+      "get": {
+        "tags": [
+          "sale"
+        ],
+        "summary": "搜尋銷售資訊",
+        "description": "搜尋銷售資訊",
+        "operationId": "salequery",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "iid",
+            "description": "商品編號/ID",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "bid",
+            "description": "分店編號/ID",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "num",
+            "description": "銷售數量",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "month",
+            "description": "銷售紀錄月份",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "day",
+            "description": "銷售紀錄日期",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "year",
+            "description": "銷售紀錄年份",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                },
+                "count": {
+                  "type": "integer"
+                },
+                "list": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Sale"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/Sale/showone.do": {
+      "get": {
+        "tags": [
+          "sale"
+        ],
+        "summary": "搜尋單一銷售資訊",
+        "description": "搜尋單一銷售資訊",
+        "operationId": "saleshowone",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "iid",
+            "description": "商品編號/ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "bid",
+            "description": "分店編號/ID",
+            "required": true,
+            "type": "integer"
+          }
+          // ,
+          // {
+          //   "in": "query",
+          //   "name": "num",
+          //   "description": "銷售數量",
+          //   "required": true,
+          //   "type": "integer"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "month",
+          //   "description": "銷售紀錄月份",
+          //   "required": true,
+          //   "type": "integer"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "day",
+          //   "description": "銷售紀錄日期",
+          //   "required": true,
+          //   "type": "integer"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "year",
+          //   "description": "銷售紀錄年份",
+          //   "required": true,
+          //   "type": "integer"
+          // }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Sale"
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/Sale/delete.do": {
+      "delete": {
+        "tags": [
+          "sale"
+        ],
+        "summary": "刪除單一銷售資訊",
+        "description": "刪除單一銷售資訊",
+        "operationId": "findPetsByStatus",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "iid",
+            "description": "商品編號/ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "bid",
+            "description": "分店編號/ID",
+            "required": true,
+            "type": "integer"
+          }
+          // ,
+          // {
+          //   "in": "query",
+          //   "name": "num",
+          //   "description": "銷售數量",
+          //   "required": true,
+          //   "type": "integer"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "month",
+          //   "description": "銷售紀錄月份",
+          //   "required": true,
+          //   "type": "integer"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "day",
+          //   "description": "銷售紀錄日期",
+          //   "required": true,
+          //   "type": "integer"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "year",
+          //   "description": "銷售紀錄年份",
+          //   "required": true,
+          //   "type": "integer"
+          // }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/StockHouse/add.do": {
+      "post": {
+        "tags": [
+          "stockhouse"
+        ],
+        "summary": "新增倉庫資訊",
+        "description": "新增倉庫資訊",
+        "operationId": "stockhouseadd",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "倉庫編號/ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "description": "倉庫名稱",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "addr",
+            "description": "倉庫地址",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "phone",
+            "description": "倉庫聯絡號碼",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "owner",
+            "description": "倉庫負責人/所有人",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/StockHouse/update.do": {
+      "put": {
+        "tags": [
+          "stockhouse"
+        ],
+        "summary": "修改倉庫資訊",
+        "description": "修改倉庫資訊",
+        "operationId": "stockhouseupdate",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "倉庫編號/ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "description": "倉庫名稱",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "addr",
+            "description": "倉庫地址",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "phone",
+            "description": "倉庫聯絡號碼",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "owner",
+            "description": "倉庫負責人/所有人",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Authority": {
+                  "$ref": "#/definitions/StockHouse"
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/StockHouse/query.do": {
+      "get": {
+        "tags": [
+          "stockhouse"
+        ],
+        "summary": "搜尋倉庫資訊",
+        "description": "搜尋倉庫資訊",
+        "operationId": "stockhousequery",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "倉庫編號/ID",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "description": "倉庫名稱",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "addr",
+            "description": "倉庫地址",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "phone",
+            "description": "倉庫聯絡號碼",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "owner",
+            "description": "倉庫負責人/所有人",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                },
+                "count": {
+                  "type": "integer"
+                },
+                "list": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/StockHouse"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/StockHouse/showone.do": {
+      "get": {
+        "tags": [
+          "stockhouse"
+        ],
+        "summary": "搜尋單一倉庫資訊",
+        "description": "搜尋單一倉庫資訊",
+        "operationId": "stockhouseshowone",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "倉庫編號/ID",
+            "required": true,
+            "type": "string"
+          }
+          // ,
+          // {
+          //   "in": "query",
+          //   "name": "name",
+          //   "description": "倉庫名稱",
+          //   "required": true,
+          //   "type": "string"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "addr",
+          //   "description": "倉庫地址",
+          //   "required": true,
+          //   "type": "string"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "phone",
+          //   "description": "倉庫聯絡號碼",
+          //   "required": true,
+          //   "type": "string"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "owner",
+          //   "description": "倉庫負責人/所有人",
+          //   "required": true,
+          //   "type": "integer"
+          // }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/StockHouse"
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/StockHouse/delete.do": {
+      "delete": {
+        "tags": [
+          "stockhouse"
+        ],
+        "summary": "刪除單一倉庫資訊",
+        "description": "刪除單一倉庫資訊",
+        "operationId": "stockhousedelete",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "倉庫編號/ID",
+            "required": true,
+            "type": "string"
+          }
+          // ,
+          // {
+          //   "in": "query",
+          //   "name": "name",
+          //   "description": "倉庫名稱",
+          //   "required": true,
+          //   "type": "string"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "addr",
+          //   "description": "倉庫地址",
+          //   "required": true,
+          //   "type": "string"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "phone",
+          //   "description": "倉庫聯絡號碼",
+          //   "required": true,
+          //   "type": "string"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "owner",
+          //   "description": "倉庫負責人/所有人",
+          //   "required": true,
+          //   "type": "integer"
+          // }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/User/add.do": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "新增使用者",
+        "description": "新增使用者",
+        "operationId": "useradd",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "使用者ID(為員工編號)",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "description": "使用者名稱",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "email",
+            "description": "使用者電子信箱",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "authcode",
+            "description": "使用者授權代碼",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "password",
+            "description": "使用者密碼",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "did",
+            "description": "使用者部門編號/ID",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "phone",
+            "description": "使用者聯絡號碼",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/User/update.do": {
+      "put": {
+        "tags": [
+          "user"
+        ],
+        "summary": "修改使用者資訊",
+        "description": "修改使用者資訊",
+        "operationId": "useradd",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "使用者ID(為員工編號)",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "description": "使用者名稱",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "email",
+            "description": "使用者電子信箱",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "authcode",
+            "description": "使用者授權代碼",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "password",
+            "description": "使用者密碼",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "did",
+            "description": "使用者部門編號/ID",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "phone",
+            "description": "使用者聯絡號碼",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Authority": {
+                  "$ref": "#/definitions/User"
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/User/query.do": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "搜尋使用者資訊",
+        "description": "搜尋使用者資訊",
+        "operationId": "userquery",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "使用者ID(為員工編號)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "description": "使用者名稱",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "email",
+            "description": "使用者電子信箱",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "authcode",
+            "description": "使用者授權代碼",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "password",
+            "description": "使用者密碼",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "did",
+            "description": "使用者部門編號/ID",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "phone",
+            "description": "使用者聯絡號碼",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                },
+                "count": {
+                  "type": "integer"
+                },
+                "list": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/User"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/User/showone.do": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "搜尋單一使用者資訊",
+        "description": "搜尋單一使用者資訊",
+        "operationId": "usershowone",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "使用者ID(為員工編號)",
+            "required": true,
+            "type": "string"
+          }
+          // ,
+          // {
+          //   "in": "query",
+          //   "name": "name",
+          //   "description": "使用者名稱",
+          //   "required": true,
+          //   "type": "string"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "email",
+          //   "description": "使用者電子信箱",
+          //   "required": true,
+          //   "type": "string"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "authcode",
+          //   "description": "使用者授權代碼",
+          //   "required": true,
+          //   "type": "integer"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "password",
+          //   "description": "使用者密碼",
+          //   "required": true,
+          //   "type": "string"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "did",
+          //   "description": "使用者部門編號/ID",
+          //   "required": true,
+          //   "type": "string"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "phone",
+          //   "description": "使用者聯絡號碼",
+          //   "required": true,
+          //   "type": "string"
+          // }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/User/delete.do": {
+      "delete": {
+        "tags": [
+          "user"
+        ],
+        "summary": "搜尋單一使用者資訊",
+        "description": "搜尋單一使用者資訊",
+        "operationId": "userdelete",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "使用者ID(為員工編號)",
+            "required": true,
+            "type": "string"
+          }
+          // ,
+          // {
+          //   "in": "query",
+          //   "name": "name",
+          //   "description": "使用者名稱",
+          //   "required": true,
+          //   "type": "string"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "email",
+          //   "description": "使用者電子信箱",
+          //   "required": true,
+          //   "type": "string"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "authcode",
+          //   "description": "使用者授權代碼",
+          //   "required": true,
+          //   "type": "integer"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "password",
+          //   "description": "使用者密碼",
+          //   "required": true,
+          //   "type": "string"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "did",
+          //   "description": "使用者部門編號/ID",
+          //   "required": true,
+          //   "type": "string"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "phone",
+          //   "description": "使用者聯絡號碼",
+          //   "required": true,
+          //   "type": "string"
+          // }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/Vehicle/add.do": {
+      "post": {
+        "tags": [
+          "vehicle"
+        ],
+        "summary": "新增貨運車輛",
+        "description": "新增貨運車輛",
+        "operationId": "vehicleadd",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "貨運車輛編號",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "type",
+            "description": "貨運車輛種類",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "manuf",
+            "description": "貨運車輛製造商",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "displacement",
+            "description": "貨運車輛從缺處理辦法編號",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "color",
+            "description": "運輸車輛顏色",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "driver",
+            "description": "運輸車輛駕駛員",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/Vehicle/update.do": {
+      "put": {
+        "tags": [
+          "vehicle"
+        ],
+        "summary": "修改貨運車輛資訊",
+        "description": "修改貨運車輛資訊",
+        "operationId": "vehicleupdate",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "貨運車輛車牌號碼/編號",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "type",
+            "description": "貨運車輛種類",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "manuf",
+            "description": "貨運車輛製造商",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "displacement",
+            "description": "貨運車輛從缺處理辦法編號",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "color",
+            "description": "運輸車輛顏色",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "driver",
+            "description": "運輸車輛駕駛員",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Authority": {
+                  "$ref": "#/definitions/Vehicle"
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/Vehicle/query.do": {
+      "get": {
+        "tags": [
+          "vehicle"
+        ],
+        "summary": "搜尋貨運車輛資訊",
+        "description": "搜尋貨運車輛資訊",
+        "operationId": "vehiclequery",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "貨運車輛編號",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "type",
+            "description": "貨運車輛種類",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "manuf",
+            "description": "貨運車輛製造商",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "displacement",
+            "description": "貨運車輛從缺處理辦法編號",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "color",
+            "description": "運輸車輛顏色",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "driver",
+            "description": "運輸車輛駕駛員",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                },
+                "count": {
+                  "type": "integer"
+                },
+                "list": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Vehicle"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/Vehicle/showone.do": {
+      "get": {
+        "tags": [
+          "vehicle"
+        ],
+        "summary": "搜尋單一貨運車輛資訊",
+        "description": "搜尋單一貨運車輛資訊",
+        "operationId": "vehiclequery",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "貨運車輛編號",
+            "required": true,
+            "type": "string"
+          }
+          // ,
+          // {
+          //   "in": "query",
+          //   "name": "type",
+          //   "description": "貨運車輛種類",
+          //   "required": true,
+          //   "type": "string"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "manuf",
+          //   "description": "貨運車輛製造商",
+          //   "required": true,
+          //   "type": "string"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "displacement",
+          //   "description": "貨運車輛從缺處理辦法編號",
+          //   "required": true,
+          //   "type": "integer"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "color",
+          //   "description": "運輸車輛顏色",
+          //   "required": true,
+          //   "type": "string"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "driver",
+          //   "description": "運輸車輛駕駛員",
+          //   "required": true,
+          //   "type": "string"
+          // }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Vehicle"
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/Vehicle/delete.do": {
+      "delete": {
+        "tags": [
+          "vehicle"
+        ],
+        "summary": "刪除單一貨運車輛資訊",
+        "description": "刪除單一貨運車輛資訊",
+        "operationId": "vehicledelete",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "貨運車輛編號",
+            "required": true,
+            "type": "string"
+          }
+          // ,
+          // {
+          //   "in": "query",
+          //   "name": "type",
+          //   "description": "貨運車輛種類",
+          //   "required": true,
+          //   "type": "string"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "manuf",
+          //   "description": "貨運車輛製造商",
+          //   "required": true,
+          //   "type": "string"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "displacement",
+          //   "description": "貨運車輛從缺處理辦法編號",
+          //   "required": true,
+          //   "type": "integer"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "color",
+          //   "description": "運輸車輛顏色",
+          //   "required": true,
+          //   "type": "string"
+          // },
+          // {
+          //   "in": "query",
+          //   "name": "driver",
+          //   "description": "運輸車輛駕駛員",
+          //   "required": true,
+          //   "type": "string"
+          // }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "json/Analysis/query.do": {
+      "get": {
+        "tags": [
+          "analysis"
+        ],
+        "summary": "取得分析用資料",
+        "description": "取得分析用資料",
+        "operationId": "analysisgetdata",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "bid",
+            "description": "要搜尋銷售紀錄的分店編號/ID,若不傳此參數則能取得所有分店銷售資訊",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "startyear",
+            "description": "欲調查銷售紀錄的起始年份",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "startmonth",
+            "description": "欲調查銷售紀錄的起始月份",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "startday",
+            "description": "欲調查銷售紀錄的起始日期",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "endyear",
+            "description": "欲調查銷售紀錄的結束年份",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "endmonth",
+            "description": "欲調查銷售紀錄的結束月份",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "endday",
+            "description": "欲調查銷售紀錄的結束日期",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                },
+                "count": {
+                  "type": "integer"
+                },
+                "list": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/AnalysisResult"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
