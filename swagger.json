@@ -4933,6 +4933,302 @@
         ]
       }
     },
+    "/json/Stock/add.do": {
+      "post": {
+        "tags": [
+          "stock"
+        ],
+        "summary": "新增分店庫存資料",
+        "description": "新增分店庫存資料",
+        "operationId": "vehicleadd",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "bid",
+            "description": "分店ID(自動遞增的數字)",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "iid",
+            "description": "商品ID/條碼編號",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "num",
+            "description": "商品庫存數量",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "/json/Stock/update.do": {
+      "put": {
+        "tags": [
+          "stock"
+        ],
+        "summary": "修改分店庫存資料",
+        "description": "修改分店庫存資料",
+        "operationId": "vehicleupdate",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "bid",
+            "description": "分店ID(自動遞增的數字)",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "iid",
+            "description": "商品ID/條碼編號",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "num",
+            "description": "商品庫存數量",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Authority": {
+                  "$ref": "#/definitions/Stock"
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "/json/Stock/query.do": {
+      "get": {
+        "tags": [
+          "stock"
+        ],
+        "summary": "搜尋貨運車輛資訊",
+        "description": "搜尋貨運車輛資訊",
+        "operationId": "vehiclequery",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "bid",
+            "description": "分店ID(自動遞增的數字)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "iid",
+            "description": "商品ID/條碼編號",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "num",
+            "description": "商品庫存數量",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                },
+                "count": {
+                  "type": "integer"
+                },
+                "list": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Stock"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "/json/Stock/showone.do": {
+      "get": {
+        "tags": [
+          "stock"
+        ],
+        "summary": "搜尋單一貨運車輛資訊",
+        "description": "搜尋單一貨運車輛資訊",
+        "operationId": "vehiclequery",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "bid",
+            "description": "分店ID(自動遞增的數字)",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "iid",
+            "description": "商品ID/條碼編號",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "若查無相對應資料，則不會回傳任何結果",
+            "schema": {
+              "$ref": "#/definitions/Stock"
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "/json/Stock/delete.do": {
+      "delete": {
+        "tags": [
+          "stock"
+        ],
+        "summary": "刪除單一貨運車輛資訊",
+        "description": "刪除單一貨運車輛資訊",
+        "operationId": "vehicledelete",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "bid",
+            "description": "分店ID(自動遞增的數字)",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "iid",
+            "description": "商品ID/條碼編號",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
     "/json/Analysis/query.do": {
       "get": {
         "tags": [
