@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "description": "POS sysytem API文件，有問題請在Line上詢問。!!注意事項(務必閱讀)!!(1) Required定義: 若不傳結果會報錯。為達到想要的效果，請自行確認該傳的參數的都傳了 (2) 傳送參數皆不使用雙引號包住 (3) 所有update方法皆無法使欄位值改為空 (4) try it out功能暫無法使用 (5) 回傳結果若含start,rowsperpage等屬性(Analysis除外),此為後台網站使用的參數(查詢結果起始，顯示幾列)，前台無須使用 (6)方法分類: -TABLE CRUD: 基礎表單CRUD，主要為前端及CMS使用 -FRONT-END FUNCTION: 為前端撰寫的方法，主要以query與showone(傳送資料至前台)為主，其餘新增、修改、刪除使用TABLE CRUD",
+    "description": "POS sysytem API文件，有問題請在Line上詢問。\r\n\r\n!!注意事項(務必閱讀)!!\r\n(1) Required定義: 若不傳結果會報錯。為達到想要的效果，請自行確認該傳的參數的都傳了 \r\n(2) 傳送參數皆不使用雙引號包住 \r\n(3) 所有update方法皆無法使欄位值改為空 \r\n(4) try it out功能暫無法使用 \r\n5) 回傳結果若含start,rowsperpage等屬性(Analysis除外),此為後台網站使用的參數(查詢結果起始，顯示幾列)，前台應無需求，但仍可視情況使用 \r\n(6)方法分類: \r\n-TABLE CRUD: 基礎表單CRUD，主要為前端及CMS使用 \r\n-FRONT-END FUNCTION: 為前端撰寫的方法，主要以query與showone(傳送資料至前台)為主，其餘新增、修改、刪除使用TABLE CRUD",
     "version": "1.0.2",
     "title": "POS System API",
     "termsOfService": "http://swagger.io/terms/",
