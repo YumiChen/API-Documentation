@@ -4945,7 +4945,7 @@
             "in": "query",
             "name": "num",
             "description": "商品庫存數量",
-            "required": true,
+            "required": false,
             "type": "string"
           }
         ],
