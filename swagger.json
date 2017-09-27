@@ -1,8 +1,8 @@
 {
   "swagger": "2.0",
   "info": {
-    "description": "POS sysytem API文件，有問題請在Line上詢問。\n\r\n\r!!注意事項(務必閱讀)!!\n\r(1) Required定義: 若不傳結果會報錯，為達到想要的效果，請自行確認該傳的參數的都傳了\n\r(2) 傳送參數皆不使用雙引號包住\n\r(3) 所有update方法皆無法使欄位值改為空\n\r(4) 因為此網站使用HTTPS協定，故try it out功能無法使用\r\n(5) 回傳結果若含start,rowsperpage等屬性(Analysis除外),此為後台網站使用的參數(查詢結果起始，顯示幾列)，前台無須使用",
-    "version": "1.0.0",
+    "description": "POS sysytem API文件，有問題請在Line上詢問。\n\r\n\r!!注意事項(務必閱讀)!!\n\r(1) Required定義: 若不傳結果會報錯。為達到想要的效果，請自行確認該傳的參數的都傳了\n\r(2) 傳送參數皆不使用雙引號包住\n\r(3) 所有update方法皆無法使欄位值改為空\n\r(4) try it out功能暫無法使用\n\r(5) 回傳結果若含start,rowsperpage等屬性(Analysis除外),此為後台網站使用的參數(查詢結果起始，顯示幾列)，前台無須使用\n\r(6)方法分類:\n\r TABLE CRUD: 基礎表單CRUD，主要為前端及CMS使用\n\r FRONT-END FUNCTION: 為前端撰寫的方法，主要以query與showone(傳送資料至前台)為主，其餘新增、修改、刪除使用TABLE CRUD",
+    "version": "1.0.2",
     "title": "POS System API",
     "termsOfService": "http://swagger.io/terms/",
     "contact": {
@@ -18,63 +18,75 @@
   "tags": [
     {
       "name": "authority",
-      "description": "授權種類"
+      "description": "TABLE CRUD / 授權種類"
     },
     {
       "name": "branch",
-      "description": "分店資訊"
+      "description": "TABLE CRUD / 分店資訊"
     },
     {
       "name": "category",
-      "description": "商品分類"
+      "description": "TABLE CRUD / 商品分類"
     },
     {
       "name": "department",
-      "description": "公司部門"
+      "description": "TABLE CRUD / 公司部門"
     },
     {
       "name": "driver",
-      "description": "貨運駕駛員"
+      "description": "TABLE CRUD / 貨運駕駛員"
     },
     {
       "name": "inventory",
-      "description": "商品盤點"
+      "description": "TABLE CRUD / 商品盤點"
     },
     {
       "name": "item",
-      "description": "商品種類"
+      "description": "TABLE CRUD / 商品種類"
     },
     {
       "name": "order",
-      "description": "訂單列表"
+      "description": "TABLE CRUD / 訂單列表"
     },
     {
       "name": "orderdetail",
-      "description": "訂單詳細"
+      "description": "TABLE CRUD / 訂單詳細"
     },
     {
       "name": "orderstatus",
-      "description": "訂單處理狀態列表"
+      "description": "TABLE CRUD / 訂單處理狀態列表"
     },
     {
       "name": "sale",
-      "description": "銷售情況"
+      "description": "TABLE CRUD / 銷售情況"
+    },
+    {
+      "name": "stock",
+      "description": "TABLE CRUD / 各分店商品庫存資訊"
     },
     {
       "name": "stockhouse",
-      "description": "各倉庫資訊"
+      "description": "TABLE CRUD / 各倉庫資訊"
     },
     {
       "name": "user",
-      "description": "使用者列表"
+      "description": "TABLE CRUD / 使用者列表"
     },
     {
       "name": "vehicle",
-      "description": "貨運交通工具列表"
+      "description": "TABLE CRUD / 貨運交通工具列表"
     },
     {
       "name": "analysis",
-      "description": "分析資料來源"
+      "description": "FRONT-END FUNCTION / 分析資料來源"
+    },
+    {
+      "name": "itemstock",
+      "description": "FRONT-END FUNCTION / 取得分店庫存資料"
+    },
+    {
+      "name": "GetOrders",
+      "description": "FRONT-END FUNCTION / 取得訂單資料"
     }
   ],
   "schemes": [
@@ -267,6 +279,9 @@
         "sourceid": {
             "type": "string"
         },
+        "istransfer":{
+        	"type": "integer"
+        },
         "start":{
             "type": "integer"
         },
@@ -341,11 +356,31 @@
         }
       }
     },
+    "Stock":{
+    	"type":"object",
+    	 "properties": {
+        "iid": {
+          "type": "string"
+        },
+        "bid": {
+          "type": "integer"
+        },
+        "num": {
+          "type": "integer"
+        },
+        "start":{
+            "type": "integer"
+        },
+        "rowsperpage":{
+            "type": "integer"
+        }
+      }
+    },
     "StockHouse": {
       "type": "object",
       "properties": {
         "id": {
-          "type": "string"
+          "type": "integer"
         },
         "name": {
           "type": "string"
@@ -457,6 +492,78 @@
         },
         "rowsperpage":{
             "type": "integer"
+        }
+      }
+    },
+    "ItemStock": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "integer"
+        },
+        "menuf": {
+          "type": "integer"
+        },
+        "price": {
+          "type": "integer"
+        },
+        "category": {
+          "type": "string"
+        },
+        "stock": {
+          "type": "string"
+        },
+        "bid": {
+          "type": "string"
+        },
+        "start":{
+            "type": "integer"
+        },
+        "rowsperpage":{
+            "type": "integer"
+        }
+      }
+    },
+    "OrderResult": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "sourceid": {
+          "type": "string"
+        },
+        "senderid":{
+          "type": "string"
+        },
+        "senddate":{
+          "type": "string"
+        },
+        "bid":{
+          "type": "string"
+        },
+        "istransfer":{
+          "type": "integer"
+        }
+      }
+    },
+    "OrderDetailResult": {
+      "type": "object",
+      "properties": {
+        "oid": {
+          "type": "string"
+        },
+        "iid": {
+          "type": "string"
+        },
+        "ordnum": {
+          "type": "integer"
         }
       }
     }
@@ -2578,6 +2685,13 @@
             "description": "出貨倉庫/分店ID",
             "required": true,
             "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "istransfer",
+            "description": "是否為店對店調貨訂單( 1為true, 0為false)",
+            "required": true,
+            "type": "integer"
           }
         ],
         "responses": {
@@ -2650,8 +2764,15 @@
             "in": "query",
             "name": "sourceid",
             "description": "出貨倉庫/分店ID",
-            "required": true,
+            "required": false,
             "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "istransfer",
+            "description": "是否為店對店調貨訂單( 1為true, 0為false)",
+            "required": false,
+            "type": "integer"
           }
         ],
         "responses": {
@@ -2729,6 +2850,13 @@
             "description": "出貨倉庫/分店ID",
             "required": true,
             "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "istransfer",
+            "description": "是否為店對店調貨訂單( 1為true, 0為false)",
+            "required": false,
+            "type": "integer"
           }
         ],
         "responses": {
@@ -2784,13 +2912,6 @@
             "description": "訂單ID,為自動產生的UUID",
             "required": false,
             "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "sourceid",
-            "description": "出貨倉庫/分店ID",
-            "required": true,
-            "type": "string"
           }
         ],
         "responses": {
@@ -2831,13 +2952,6 @@
             "name": "id",
             "description": "訂單ID,為自動產生的UUID",
             "required": false,
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "sourceid",
-            "description": "出貨倉庫/分店ID",
-            "required": true,
             "type": "string"
           }
         ],
@@ -3783,6 +3897,7 @@
         ]
       }
     },
+    
     "/json/StockHouse/add.do": {
       "post": {
         "tags": [
@@ -4914,6 +5029,331 @@
           }
         ]
       }
+    },
+    "/json/ItemStock/query.do": {
+      "get": {
+        "tags": [
+          "itemstock"
+        ],
+        "summary": "取得複數分店或所有分店庫存資料",
+        "description": "取得複數分店或所有分店庫存資料，其他新增(add/insert)或修改(update)及刪除(delete)方法直接使用Stock表單的API操作即可",
+        "operationId": "itemstockquery",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "商品ID/條碼編號",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "description": "商品名稱",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "menuf",
+            "description": "商品製造商",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "price",
+            "description": "商品價格",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "category",
+            "description": "商品種類名稱",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "stock",
+            "description": "商品庫存量",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "bid",
+            "description": "欲查詢商品庫存的分店",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "start",
+            "description": "回傳資料筆數起始值(所有的資料由何處開始列)",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "rowsperpage",
+            "description": "回傳資料筆數",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                },
+                "count": {
+                  "type": "integer"
+                },
+                "list": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/ItemStock"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "/json/ItemStock/showone.do": {
+      "get": {
+        "tags": [
+          "itemstock"
+        ],
+        "summary": "取得單一分店庫存資料",
+        "description": "取得單一分店庫存資料，其他新增(add/insert)或修改(update)及刪除(delete)方法直接使用Stock表單的API操作即可",
+        "operationId": "itemstockquery",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "商品ID/條碼編號",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "bid",
+            "description": "欲查詢商品庫存的分店",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/ItemStock"
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "/json/GetOrders/query.do": {
+      "get": {
+        "tags": [
+          "GetOrders"
+        ],
+        "summary": "取得訂單資訊",
+        "description": "取得訂單資訊",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "訂單ID(成立日期加上隨機數字)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "istransfer",
+            "description": "是否為調貨訂單(1為true,0為false)若不傳此參數，會被自動代入0",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "sourceid",
+            "description": "下定商品來源(倉庫或其他分店)",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "senderid",
+            "description": "司機姓名",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "senddate",
+            "description": "預計送達日期",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "bid",
+            "description": "下訂單的分店名",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "status",
+            "description": "訂單處理狀態",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                },
+                "count": {
+                  "type": "integer"
+                },
+                "list": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/OrderResult"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "/json/GetOrderDetails/query.do": {
+      "get": {
+        "tags": [
+          "GetOrders"
+        ],
+        "summary": "取得訂單詳細資料",
+        "description": "取得訂單詳細資料",
+        "operationId": "itemstockquery",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "oid",
+            "description": "訂單ID(成立日期加上隨機數字)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "iid",
+            "description": "訂購商品名稱",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "ordnum",
+            "description": "訂購商品數量",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                },
+                "count": {
+                  "type": "integer"
+                },
+                "list": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/OrderDetailResult"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
     }
+    
   }
 }
