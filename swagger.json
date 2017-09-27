@@ -5064,8 +5064,8 @@
         "tags": [
           "stock"
         ],
-        "summary": "搜尋貨運車輛資訊",
-        "description": "搜尋貨運車輛資訊",
+        "summary": "搜尋分店庫存資料",
+        "description": "搜尋分店庫存資料",
         "operationId": "vehiclequery",
         "produces": [
           "application/json"
@@ -5133,8 +5133,8 @@
         "tags": [
           "stock"
         ],
-        "summary": "搜尋單一貨運車輛資訊",
-        "description": "搜尋單一貨運車輛資訊",
+        "summary": "搜尋單一分店庫存資料",
+        "description": "搜尋單一分店庫存資料",
         "operationId": "vehiclequery",
         "produces": [
           "application/json"
@@ -5181,8 +5181,8 @@
         "tags": [
           "stock"
         ],
-        "summary": "刪除單一貨運車輛資訊",
-        "description": "刪除單一貨運車輛資訊",
+        "summary": "刪除單一分店庫存資料",
+        "description": "刪除單一分店庫存資料",
         "operationId": "vehicledelete",
         "produces": [
           "application/json"
