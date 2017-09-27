@@ -250,9 +250,6 @@
         "category": {
           "type": "integer"
         },
-        "stock": {
-          "type": "integer"
-        },
         "start":{
             "type": "integer"
         },
@@ -425,6 +422,9 @@
         },
         "phone": {
           "type": "string"
+        },
+        "bid": {
+          "type": "integer"
         },
         "start":{
             "type": "integer"
@@ -2340,13 +2340,6 @@
             "description": "商品種類",
             "required": false,
             "type": "integer"
-          },
-          {
-            "in": "query",
-            "name": "stock",
-            "description": "商品庫存數量",
-            "required": false,
-            "type": "integer"
           }
         ],
         "responses": {
@@ -2419,13 +2412,6 @@
             "in": "query",
             "name": "category",
             "description": "商品種類",
-            "required": false,
-            "type": "integer"
-          },
-          {
-            "in": "query",
-            "name": "stock",
-            "description": "商品庫存數量",
             "required": false,
             "type": "integer"
           }
@@ -2503,13 +2489,6 @@
             "in": "query",
             "name": "category",
             "description": "商品種類",
-            "required": false,
-            "type": "integer"
-          },
-          {
-            "in": "query",
-            "name": "stock",
-            "description": "商品庫存數量",
             "required": false,
             "type": "integer"
           }
