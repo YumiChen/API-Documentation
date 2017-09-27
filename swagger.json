@@ -5053,56 +5053,56 @@
             "in": "query",
             "name": "name",
             "description": "商品名稱",
-            "required": true,
+            "required": false,
             "type": "string"
           },
           {
             "in": "query",
             "name": "menuf",
             "description": "商品製造商",
-            "required": true,
+            "required": false,
             "type": "string"
           },
           {
             "in": "query",
             "name": "price",
             "description": "商品價格",
-            "required": true,
+            "required": false,
             "type": "integer"
           },
           {
             "in": "query",
             "name": "category",
             "description": "商品種類名稱",
-            "required": true,
+            "required": false,
             "type": "string"
           },
           {
             "in": "query",
             "name": "stock",
             "description": "商品庫存量",
-            "required": true,
+            "required": false,
             "type": "integer"
           },
           {
             "in": "query",
             "name": "bid",
             "description": "欲查詢商品庫存的分店",
-            "required": true,
+            "required": false,
             "type": "integer"
           },
           {
             "in": "query",
             "name": "start",
             "description": "回傳資料筆數起始值(所有的資料由何處開始列)",
-            "required": true,
+            "required": false,
             "type": "integer"
           },
           {
             "in": "query",
             "name": "rowsperpage",
             "description": "回傳資料筆數",
-            "required": true,
+            "required": false,
             "type": "integer"
           }
         ],
@@ -5157,7 +5157,7 @@
             "in": "query",
             "name": "id",
             "description": "商品ID/條碼編號",
-            "required": false,
+            "required": true,
             "type": "string"
           },
           {
@@ -5211,42 +5211,42 @@
             "in": "query",
             "name": "istransfer",
             "description": "是否為調貨訂單(1為true,0為false)若不傳此參數，會被自動代入0",
-            "required": true,
+            "required": false,
             "type": "integer"
           },
           {
             "in": "query",
             "name": "sourceid",
             "description": "下定商品來源(倉庫或其他分店)",
-            "required": true,
+            "required": false,
             "type": "string"
           },
           {
             "in": "query",
             "name": "senderid",
             "description": "司機姓名",
-            "required": true,
+            "required": false,
             "type": "string"
           },
           {
             "in": "query",
             "name": "senddate",
             "description": "預計送達日期",
-            "required": true,
+            "required": false,
             "type": "string"
           },
           {
             "in": "query",
             "name": "bid",
             "description": "下訂單的分店名",
-            "required": true,
+            "required": false,
             "type": "string"
           },
           {
             "in": "query",
             "name": "status",
             "description": "訂單處理狀態",
-            "required": true,
+            "required": false,
             "type": "string"
           }
         ],
@@ -5308,14 +5308,14 @@
             "in": "query",
             "name": "iid",
             "description": "訂購商品名稱",
-            "required": true,
+            "required": false,
             "type": "integer"
           },
           {
             "in": "query",
             "name": "ordnum",
             "description": "訂購商品數量",
-            "required": true,
+            "required": false,
             "type": "integer"
           }
         ],
