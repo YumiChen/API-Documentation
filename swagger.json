@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "description": "POS sysytem API文件，有問題請在Line上詢問。\n\r\n\r!!注意事項(務必閱讀)!!\n\r(1) Required定義: 若不傳結果會報錯。為達到想要的效果，請自行確認該傳的參數的都傳了\n\r(2) 傳送參數皆不使用雙引號包住\n\r(3) 所有update方法皆無法使欄位值改為空\n\r(4) try it out功能暫無法使用\n\r(5) 回傳結果若含start,rowsperpage等屬性(Analysis除外),此為後台網站使用的參數(查詢結果起始，顯示幾列)，前台無須使用\n\r(6)方法分類:\n\r TABLE CRUD: 基礎表單CRUD，主要為前端及CMS使用\n\r FRONT-END FUNCTION: 為前端撰寫的方法，主要以query與showone(傳送資料至前台)為主，其餘新增、修改、刪除使用TABLE CRUD\n\r(7)傳送API時&後須直接接參數名稱，不能有空白或其他字元",
+    "description": "POS sysytem API文件，有問題請在Line上詢問。!!注意事項(務必閱讀)!!(1) Required定義: 若不傳結果會報錯。為達到想要的效果，請自行確認該傳的參數的都傳了 (2) 傳送參數皆不使用雙引號包住 (3) 所有update方法皆無法使欄位值改為空 (4) try it out功能暫無法使用 (5) 回傳結果若含start,rowsperpage等屬性(Analysis除外),此為後台網站使用的參數(查詢結果起始，顯示幾列)，前台無須使用 (6)方法分類: -TABLE CRUD: 基礎表單CRUD，主要為前端及CMS使用 -FRONT-END FUNCTION: 為前端撰寫的方法，主要以query與showone(傳送資料至前台)為主，其餘新增、修改、刪除使用TABLE CRUD",
     "version": "1.0.2",
     "title": "POS System API",
     "termsOfService": "http://swagger.io/terms/",
@@ -250,6 +250,9 @@
         "category": {
           "type": "integer"
         },
+        "stock": {
+          "type": "integer"
+        },
         "start":{
             "type": "integer"
         },
@@ -422,9 +425,6 @@
         },
         "phone": {
           "type": "string"
-        },
-        "bid": {
-          "type": "integer"
         },
         "start":{
             "type": "integer"
@@ -2340,6 +2340,13 @@
             "description": "商品種類",
             "required": false,
             "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "stock",
+            "description": "商品庫存數量",
+            "required": false,
+            "type": "integer"
           }
         ],
         "responses": {
@@ -2412,6 +2419,13 @@
             "in": "query",
             "name": "category",
             "description": "商品種類",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "stock",
+            "description": "商品庫存數量",
             "required": false,
             "type": "integer"
           }
@@ -2489,6 +2503,13 @@
             "in": "query",
             "name": "category",
             "description": "商品種類",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "stock",
+            "description": "商品庫存數量",
             "required": false,
             "type": "integer"
           }
@@ -2836,6 +2857,13 @@
             "description": "是否為店對店調貨訂單( 1為true, 0為false)",
             "required": false,
             "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "valid",
+            "description": "是否有效( 1為true, 0為false)，若不傳此參數則會傳送預設值0",
+            "required": false,
+            "type": "integer"
           }
         ],
         "responses": {
@@ -2940,6 +2968,62 @@
             "schema": {
               "type": "object",
               "properties": {
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+        "/json/Order/handlevalidation.do": {
+      "put": {
+        "tags": [
+          "order"
+        ],
+        "summary": "修改訂單效力(有效或無效)",
+        "description": "修改訂單效力(有效或無效)",
+        "operationId": "handlevalidation",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "訂單ID,為自動產生的UUID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "valid",
+            "description": "是否有效( 1為true, 0為false)，若不傳此參數則會傳送預設值0",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Authority": {
+                  "$ref": "#/definitions/Order"
+                },
                 "success": {
                   "type": "boolean"
                 }
@@ -4945,7 +5029,7 @@
             "in": "query",
             "name": "num",
             "description": "商品庫存數量",
-            "required": false,
+            "required": true,
             "type": "string"
           }
         ],
