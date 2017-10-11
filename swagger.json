@@ -25,16 +25,8 @@
 			"description": "ANDROID / 商品庫存查詢，庫存查詢功能使用"
 		},
     {
-			"name": "ItemInventoryAll",
-			"description": "ANDROID / 取得盤點過及未盤點過的商品資料，盤點功能使用"
-		},
-		{
 			"name": "ItemInventory",
-			"description": "ANDROID / 取得盤點表，盤點功能使用"
-		},
-		{
-			"name": "InventoryLoss",
-			"description": "ANDROID / 取得盤損表，盤點功能使用"
+			"description": "ANDROID / 商品盤點功能相關API，取得盤點表、盤損表及所有商品資訊"
 		},
 		{
 			"name": "GetOrders",
@@ -6114,7 +6106,7 @@
     	"/json/ItemInventoryAll/query.do": {
 			"get": {
 				"tags": [
-					"ItemInventoryAll"
+					"ItemInventory"
 				],
 				"summary": "取得盤點表",
 				"description": "取得特定分店盤點過及未盤點過的商品列表，其他新增(add/insert)或修改(update)及刪除(delete)方法直接使用stock及inventory表單的API操作即可",
@@ -6266,7 +6258,7 @@
 		"/json/InventoryLoss/query.do": {
 			"get": {
 				"tags": [
-					"InventoryLoss"
+					"ItemInventory"
 				],
 				"summary": "取得盤損表",
 				"description": "取得特定分店已商品列表，其他新增(add/insert)或修改(update)及刪除(delete)方法直接使用stock及inventory表單的API操作即可",
