@@ -24,6 +24,10 @@
 			"name": "ItemStock",
 			"description": "ANDROID / 商品庫存查詢，庫存查詢功能使用"
 		},
+    {
+			"name": "ItemInventoryAll",
+			"description": "ANDROID / 取得盤點過及未盤點過的商品資料，盤點功能使用"
+		},
 		{
 			"name": "ItemInventory",
 			"description": "ANDROID / 取得盤點表，盤點功能使用"
@@ -6088,6 +6092,82 @@
 									"type": "array",
 									"items": {
 										"$ref": "#/definitions/ItemStock"
+									}
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Invalid status value"
+					}
+				},
+				"security": [
+					{
+						"petstore_auth": [
+							"write:pets",
+							"read:pets"
+						]
+					}
+				]
+			}
+		},
+    	"/json/ItemInventoryAll/query.do": {
+			"get": {
+				"tags": [
+					"ItemInventoryAll"
+				],
+				"summary": "取得盤點表",
+				"description": "取得特定分店盤點過及未盤點過的商品列表，其他新增(add/insert)或修改(update)及刪除(delete)方法直接使用stock及inventory表單的API操作即可",
+				"operationId": "ItemInventoryquery",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "pid",
+						"description": "欲查詢商品庫存的分店",
+						"required": true,
+						"type": "integer"
+					},
+					{
+						"in": "query",
+						"name": "id",
+						"description": "商品ID/條碼編號",
+						"required": false,
+						"type": "string"
+					},
+					{
+						"in": "query",
+						"name": "start",
+						"description": "回傳資料筆數起始值(所有的資料由何處開始列)",
+						"required": false,
+						"type": "integer"
+					},
+					{
+						"in": "query",
+						"name": "rowsperpage",
+						"description": "回傳資料筆數",
+						"required": false,
+						"type": "integer"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "successful operation",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"success": {
+									"type": "boolean"
+								},
+								"count": {
+									"type": "integer"
+								},
+								"list": {
+									"type": "array",
+									"items": {
+										"$ref": "#/definitions/ItemInventory"
 									}
 								}
 							}
